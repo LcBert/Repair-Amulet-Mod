@@ -1,0 +1,276 @@
+{
+  "mod_elements": [
+    {
+      "name": "RepairItems",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "repair_items",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/repairamulet/procedures/RepairItemsProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Amulet"
+    },
+    {
+      "name": "ResetVariables",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "reset_variables",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/repairamulet/procedures/ResetVariablesProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "BasicRepairAmulet",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "basic_repair_amulet",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/repair_amulet/models/item/basic_repair_amulet.json",
+          "src/main/java/net/mcreator/repairamulet/item/BasicRepairAmuletItem.java"
+        ]
+      },
+      "path": "~/Amulet"
+    },
+    {
+      "name": "AdvancedRepairAmulet",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "advanced_repair_amulet",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/repair_amulet/models/item/advanced_repair_amulet.json",
+          "src/main/java/net/mcreator/repairamulet/item/AdvancedRepairAmuletItem.java"
+        ]
+      },
+      "path": "~/Amulet"
+    },
+    {
+      "name": "EliteRepairAmulet",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "elite_repair_amulet",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/repairamulet/item/EliteRepairAmuletItem.java",
+          "src/main/resources/assets/repair_amulet/models/item/elite_repair_amulet.json"
+        ]
+      },
+      "path": "~/Amulet"
+    },
+    {
+      "name": "UltimateRepairAmulet",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ultimate_repair_amulet",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/repair_amulet/models/item/ultimate_repair_amulet.json",
+          "src/main/java/net/mcreator/repairamulet/item/UltimateRepairAmuletItem.java"
+        ]
+      },
+      "path": "~/Amulet"
+    },
+    {
+      "name": "CreativeRepairAmulet",
+      "type": "item",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "creative_repair_amulet",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/repair_amulet/models/item/creative_repair_amulet.json",
+          "src/main/java/net/mcreator/repairamulet/item/CreativeRepairAmuletItem.java"
+        ]
+      },
+      "path": "~/Amulet"
+    },
+    {
+      "name": "RepairAmuletTab",
+      "type": "tab",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "repair_amulet_tab",
+      "metadata": {
+        "files": []
+      }
+    },
+    {
+      "name": "CheckAmuletInInvetory",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "check_amulet_in_invetory",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/repairamulet/procedures/CheckAmuletInInvetoryProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "RepairAmuletConfigFile",
+      "type": "config",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "repair_amulet_config_file",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/repairamulet/configuration/RepairAmuletConfigFileConfiguration.java"
+        ]
+      },
+      "path": "~/ConfigFile"
+    },
+    {
+      "name": "ReadConfigFile",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "read_config_file",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/repairamulet/procedures/ReadConfigFileProcedure.java"
+        ],
+        "dependencies": []
+      },
+      "path": "~/ConfigFile"
+    },
+    {
+      "name": "CreativeRepairAmuletTick",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "creative_repair_amulet_tick",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/repairamulet/procedures/CreativeRepairAmuletTickProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Amulet"
+    }
+  ],
+  "variable_elements": [
+    {
+      "name": "repair_amulet_is_working",
+      "type": "logic",
+      "scope": "player_lifetime",
+      "value": "false"
+    },
+    {
+      "name": "tick_to_wait",
+      "type": "number",
+      "scope": "player_lifetime",
+      "value": "0"
+    },
+    {
+      "name": "amout_to_repair",
+      "type": "number",
+      "scope": "player_lifetime",
+      "value": "0"
+    },
+    {
+      "name": "tick_list",
+      "type": "arraylist",
+      "scope": "global",
+      "value": "new ArrayList\u003c\u003e()"
+    },
+    {
+      "name": "amount_list",
+      "type": "arraylist",
+      "scope": "global",
+      "value": "new ArrayList\u003c\u003e()"
+    },
+    {
+      "name": "repair_amulet_can_work",
+      "type": "logic",
+      "scope": "player_lifetime",
+      "value": "false"
+    }
+  ],
+  "sound_elements": [],
+  "tag_elements": {},
+  "tab_element_order": {},
+  "language_map": {
+    "en_us": {
+      "item.repair_amulet.basic_repair_amulet": "Basic Repair Amulet",
+      "item_group.repair_amulet.repair_amulet_tab": "Repair Amulet",
+      "item.repair_amulet.creative_repair_amulet": "Creative Repair Amulet",
+      "item.repair_amulet.advanced_repair_amulet": "Advanced Repair Amulet",
+      "item.repair_amulet.ultimate_repair_amulet": "Ultimate Repair Amulet",
+      "item.repair_amulet.elite_repair_amulet": "Elite Repair Amulet"
+    }
+  },
+  "foldersRoot": {
+    "name": "~",
+    "children": [
+      {
+        "name": "Amulet",
+        "children": []
+      },
+      {
+        "name": "ConfigFile",
+        "children": []
+      }
+    ]
+  },
+  "workspaceSettings": {
+    "modid": "repair_amulet",
+    "modName": "Repair Amulet",
+    "version": "1.0.0",
+    "author": "lucab, MCreator",
+    "websiteURL": "https://mcreator.net",
+    "license": "Not specified",
+    "serverSideOnly": false,
+    "requiredMods": [],
+    "dependencies": [],
+    "dependants": [],
+    "mcreatorDependencies": [
+      "jei"
+    ],
+    "currentGenerator": "forge-1.20.1",
+    "credits": "Created using mod maker MCreator - https://mcreator.net/about",
+    "modElementsPackage": "net.mcreator.repairamulet"
+  },
+  "mcreatorVersion": 202400229712
+}

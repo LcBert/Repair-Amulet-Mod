@@ -1,0 +1,166 @@
+{
+  "_fv": 66,
+  "_type": "config",
+  "definition": {
+    "pools": [
+      {
+        "category": "basic_repair_amulet",
+        "entries": [
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 100.0,
+            "textDefault": "",
+            "comment": "How many tick have to wait before repair items",
+            "vardisplay": "tick",
+            "varname": "basic_tick",
+            "enablecomment": true,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 1.0,
+            "textDefault": "",
+            "comment": "How many damage point will the ring remove",
+            "vardisplay": "amount",
+            "varname": "basic_amount",
+            "enablecomment": true,
+            "stringlist": []
+          }
+        ]
+      },
+      {
+        "category": "advanced_repair_amulet",
+        "entries": [
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 50.0,
+            "textDefault": "",
+            "comment": "How many tick have to wait before repair items",
+            "vardisplay": "tick",
+            "varname": "advanced_tick",
+            "enablecomment": true,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 1.0,
+            "textDefault": "",
+            "comment": "How many damage point will the ring remove",
+            "vardisplay": "amount",
+            "varname": "advanced_amount",
+            "enablecomment": true,
+            "stringlist": []
+          }
+        ]
+      },
+      {
+        "category": "elite_repair_amulet",
+        "entries": [
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 20.0,
+            "textDefault": "",
+            "comment": "How many tick have to wait before repair items",
+            "vardisplay": "tick",
+            "varname": "elite_tick",
+            "enablecomment": true,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 1.0,
+            "textDefault": "",
+            "comment": "How many damage point will the ring remove",
+            "vardisplay": "amount",
+            "varname": "elite_amount",
+            "enablecomment": true,
+            "stringlist": []
+          }
+        ]
+      },
+      {
+        "category": "ultimate_repair_amulet",
+        "entries": [
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 5.0,
+            "textDefault": "",
+            "comment": "How many tick have to wait before repair items",
+            "vardisplay": "tick",
+            "varname": "ultimate_tick",
+            "enablecomment": true,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 1,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 1.0,
+            "textDefault": "",
+            "comment": "How many damage point will the ring remove",
+            "vardisplay": "amount",
+            "varname": "ultimate_amount",
+            "enablecomment": true,
+            "stringlist": []
+          }
+        ]
+      }
+    ],
+    "file": "repair_amulet-common",
+    "configType": 0
+  }
+}

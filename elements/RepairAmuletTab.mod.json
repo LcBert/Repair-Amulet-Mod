@@ -1,0 +1,11 @@
+{
+  "_fv": 66,
+  "_type": "tab",
+  "definition": {
+    "name": "Repair Amulet",
+    "icon": {
+      "value": "CUSTOM:EliteRepairAmulet"
+    },
+    "showSearch": false
+  }
+}
