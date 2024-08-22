@@ -188,6 +188,81 @@
         ]
       },
       "path": "~/Amulet"
+    },
+    {
+      "name": "BasicRepairAmuletCrafting",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "basic_repair_amulet_crafting",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/repair_amulet/recipes/basic_repair_amulet_crafting.json"
+        ]
+      },
+      "path": "~/Crafting"
+    },
+    {
+      "name": "AdvancedRepairAmuletCrafting",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "advanced_repair_amulet_crafting",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/repair_amulet/recipes/advanced_repair_amulet_crafting.json"
+        ]
+      },
+      "path": "~/Crafting"
+    },
+    {
+      "name": "EliteRepairAmuletCrafting",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "elite_repair_amulet_crafting",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/repair_amulet/recipes/elite_repair_amulet_crafting.json"
+        ]
+      },
+      "path": "~/Crafting"
+    },
+    {
+      "name": "UltimateRepairAmuletCrafting",
+      "type": "recipe",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ultimate_repair_amulet_crafting",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/repair_amulet/recipes/ultimate_repair_amulet_crafting.json"
+        ]
+      },
+      "path": "~/Crafting"
+    },
+    {
+      "name": "RepairAmuletTooltip",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "repair_amulet_tooltip",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/repairamulet/procedures/RepairAmuletTooltipProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          },
+          {
+            "name": "tooltip",
+            "type": "tooltip"
+          }
+        ]
+      },
+      "path": "~/Amulet"
     }
   ],
   "variable_elements": [
@@ -251,17 +326,23 @@
       {
         "name": "ConfigFile",
         "children": []
+      },
+      {
+        "name": "Crafting",
+        "children": []
       }
     ]
   },
   "workspaceSettings": {
     "modid": "repair_amulet",
     "modName": "Repair Amulet",
-    "version": "1.0.0",
-    "author": "lucab, MCreator",
-    "websiteURL": "https://mcreator.net",
-    "license": "Not specified",
+    "version": "1.1",
+    "description": "Repair amulet with different tier",
+    "author": "lucab",
+    "websiteURL": "https://github.com/LcBert/Repair-Amulet-Mod",
+    "license": "MIT License",
     "serverSideOnly": false,
+    "modPicture": "mod_icon",
     "requiredMods": [],
     "dependencies": [],
     "dependants": [],

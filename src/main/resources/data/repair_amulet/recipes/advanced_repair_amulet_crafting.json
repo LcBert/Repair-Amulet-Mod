@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "aba",
+    "cdc",
+    "aba"
+  ],
+  "key": {
+    "a": {
+      "item": "minecraft:iron_block"
+    },
+    "b": {
+      "item": "minecraft:anvil"
+    },
+    "c": {
+      "item": "minecraft:redstone"
+    },
+    "d": {
+      "item": "repair_amulet:basic_repair_amulet"
+    }
+  },
+  "result": {
+    "item": "repair_amulet:advanced_repair_amulet",
+    "count": 1
+  }
+}
