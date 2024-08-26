@@ -77,8 +77,8 @@
       "registry_name": "elite_repair_amulet",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/repairamulet/item/EliteRepairAmuletItem.java",
-          "src/main/resources/assets/repair_amulet/models/item/elite_repair_amulet.json"
+          "src/main/resources/assets/repair_amulet/models/item/elite_repair_amulet.json",
+          "src/main/java/net/mcreator/repairamulet/item/EliteRepairAmuletItem.java"
         ]
       },
       "path": "~/Amulet"
@@ -105,8 +105,8 @@
       "registry_name": "creative_repair_amulet",
       "metadata": {
         "files": [
-          "src/main/resources/assets/repair_amulet/models/item/creative_repair_amulet.json",
-          "src/main/java/net/mcreator/repairamulet/item/CreativeRepairAmuletItem.java"
+          "src/main/java/net/mcreator/repairamulet/item/CreativeRepairAmuletItem.java",
+          "src/main/resources/assets/repair_amulet/models/item/creative_repair_amulet.json"
         ]
       },
       "path": "~/Amulet"
@@ -137,7 +137,8 @@
             "type": "entity"
           }
         ]
-      }
+      },
+      "path": "~/Amulet"
     },
     {
       "name": "RepairAmuletConfigFile",
@@ -304,7 +305,15 @@
     }
   ],
   "sound_elements": [],
-  "tag_elements": {},
+  "tag_elements": {
+    "ITEMS:mod:repair_amulet": [
+      "CUSTOM:BasicRepairAmulet",
+      "CUSTOM:AdvancedRepairAmulet",
+      "CUSTOM:EliteRepairAmulet",
+      "CUSTOM:UltimateRepairAmulet",
+      "CUSTOM:CreativeRepairAmulet"
+    ]
+  },
   "tab_element_order": {},
   "language_map": {
     "en_us": {

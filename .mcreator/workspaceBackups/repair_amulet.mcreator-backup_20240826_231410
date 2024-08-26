@@ -77,8 +77,8 @@
       "registry_name": "elite_repair_amulet",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/repairamulet/item/EliteRepairAmuletItem.java",
-          "src/main/resources/assets/repair_amulet/models/item/elite_repair_amulet.json"
+          "src/main/resources/assets/repair_amulet/models/item/elite_repair_amulet.json",
+          "src/main/java/net/mcreator/repairamulet/item/EliteRepairAmuletItem.java"
         ]
       },
       "path": "~/Amulet"
@@ -105,8 +105,8 @@
       "registry_name": "creative_repair_amulet",
       "metadata": {
         "files": [
-          "src/main/resources/assets/repair_amulet/models/item/creative_repair_amulet.json",
-          "src/main/java/net/mcreator/repairamulet/item/CreativeRepairAmuletItem.java"
+          "src/main/java/net/mcreator/repairamulet/item/CreativeRepairAmuletItem.java",
+          "src/main/resources/assets/repair_amulet/models/item/creative_repair_amulet.json"
         ]
       },
       "path": "~/Amulet"
@@ -137,7 +137,8 @@
             "type": "entity"
           }
         ]
-      }
+      },
+      "path": "~/Amulet"
     },
     {
       "name": "RepairAmuletConfigFile",
@@ -263,6 +264,52 @@
         ]
       },
       "path": "~/Amulet"
+    },
+    {
+      "name": "RepairBlock",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "repair_block",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/repair_amulet/blockstates/repair_block.json",
+          "src/main/resources/assets/repair_amulet/models/block/repair_block.json",
+          "src/main/java/net/mcreator/repairamulet/block/entity/RepairBlockBlockEntity.java",
+          "src/main/resources/data/repair_amulet/loot_tables/blocks/repair_block.json",
+          "src/main/java/net/mcreator/repairamulet/block/RepairBlockBlock.java",
+          "src/main/resources/assets/repair_amulet/models/item/repair_block.json"
+        ]
+      },
+      "path": "~/Block"
+    },
+    {
+      "name": "RepairBlockGUI",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "repair_block_gui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/repairamulet/world/inventory/RepairBlockGUIMenu.java",
+          "src/main/java/net/mcreator/repairamulet/client/gui/RepairBlockGUIScreen.java"
+        ]
+      },
+      "path": "~/Block"
+    },
+    {
+      "name": "RepairItemInRepairBlock",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "repair_item_in_repair_block",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/repairamulet/procedures/RepairItemInRepairBlockProcedure.java"
+        ],
+        "dependencies": []
+      },
+      "path": "~/Block"
     }
   ],
   "variable_elements": [
@@ -304,15 +351,28 @@
     }
   ],
   "sound_elements": [],
-  "tag_elements": {},
+  "tag_elements": {
+    "ITEMS:mod:repair_amulet": [
+      "CUSTOM:BasicRepairAmulet",
+      "CUSTOM:AdvancedRepairAmulet",
+      "CUSTOM:EliteRepairAmulet",
+      "CUSTOM:UltimateRepairAmulet",
+      "CUSTOM:CreativeRepairAmulet"
+    ],
+    "BLOCKS:minecraft:mineable/pickaxe": [
+      "~CUSTOM:RepairBlock"
+    ]
+  },
   "tab_element_order": {},
   "language_map": {
     "en_us": {
       "item.repair_amulet.basic_repair_amulet": "Basic Repair Amulet",
       "item_group.repair_amulet.repair_amulet_tab": "Repair Amulet",
+      "block.repair_amulet.repair_block": "Repair Block",
       "item.repair_amulet.creative_repair_amulet": "Creative Repair Amulet",
       "item.repair_amulet.advanced_repair_amulet": "Advanced Repair Amulet",
       "item.repair_amulet.ultimate_repair_amulet": "Ultimate Repair Amulet",
+      "gui.repair_amulet.repair_block_gui.label_repair_block": "Repair Block",
       "item.repair_amulet.elite_repair_amulet": "Elite Repair Amulet"
     }
   },
@@ -330,13 +390,17 @@
       {
         "name": "Crafting",
         "children": []
+      },
+      {
+        "name": "Block",
+        "children": []
       }
     ]
   },
   "workspaceSettings": {
     "modid": "repair_amulet",
     "modName": "Repair Amulet",
-    "version": "1.1",
+    "version": "1.2",
     "description": "Repair amulet with different tier",
     "author": "lucab",
     "websiteURL": "https://github.com/LcBert/Repair-Amulet-Mod",
