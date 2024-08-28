@@ -1,5 +1,6 @@
 package net.mcreator.repairamulet.procedures;
 
+import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.items.IItemHandlerModifiable;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.fml.common.Mod;
@@ -12,6 +13,7 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.util.RandomSource;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.nbt.CompoundTag;
 
 import net.mcreator.repairamulet.network.RepairAmuletModVariables;
@@ -37,8 +39,11 @@ public class RepairItemsProcedure {
 	private static void execute(@Nullable Event event, LevelAccessor world, Entity entity) {
 		if (entity == null)
 			return;
+		boolean can_repair = false;
 		double selected_slot_number = 0;
 		double slot_number_iterator = 0;
+		double i = 0;
+		double j = 0;
 		if ((entity.getCapability(RepairAmuletModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new RepairAmuletModVariables.PlayerVariables())).tick_to_wait != -1) {
 			if ((entity.getCapability(RepairAmuletModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new RepairAmuletModVariables.PlayerVariables())).repair_amulet_can_work) {
 				selected_slot_number = new Object() {
@@ -65,22 +70,47 @@ public class RepairItemsProcedure {
 								ItemStack itemstackiterator = _iitemhandlerref.get().getStackInSlot(_idx).copy();
 								if (!(slot_number_iterator == selected_slot_number)) {
 									if (itemstackiterator.getOrCreateTag().getDouble("Damage") > 0) {
-										{
-											ItemStack _ist = itemstackiterator;
-											if (_ist.hurt((int) ((entity.getCapability(RepairAmuletModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new RepairAmuletModVariables.PlayerVariables())).amout_to_repair * (-1)), RandomSource.create(),
-													null)) {
-												_ist.shrink(1);
-												_ist.setDamageValue(0);
+										if (RepairAmuletModVariables.amulet_whitelist.size() > 0) {
+											can_repair = false;
+											i = 0;
+											for (int index0 = 0; index0 < (int) RepairAmuletModVariables.amulet_whitelist.size(); index0++) {
+												if (itemstackiterator.getItem() == ForgeRegistries.ITEMS
+														.getValue(new ResourceLocation(((RepairAmuletModVariables.amulet_whitelist.get((int) i) instanceof String _s ? _s : "")).toLowerCase(java.util.Locale.ENGLISH)))) {
+													can_repair = true;
+													break;
+												}
+												i = i + 1;
+											}
+										} else {
+											can_repair = true;
+											i = 0;
+											for (int index1 = 0; index1 < (int) RepairAmuletModVariables.amulet_blacklist.size(); index1++) {
+												if (itemstackiterator.getItem() == ForgeRegistries.ITEMS
+														.getValue(new ResourceLocation(((RepairAmuletModVariables.amulet_blacklist.get((int) i) instanceof String _s ? _s : "")).toLowerCase(java.util.Locale.ENGLISH)))) {
+													can_repair = false;
+													break;
+												}
+												i = i + 1;
 											}
 										}
-										{
-											final int _slotid = (int) slot_number_iterator;
-											final ItemStack _setstack = itemstackiterator.copy();
-											_setstack.setCount(1);
-											entity.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
-												if (capability instanceof IItemHandlerModifiable _modHandlerEntSetSlot)
-													_modHandlerEntSetSlot.setStackInSlot(_slotid, _setstack);
-											});
+										if (can_repair) {
+											{
+												ItemStack _ist = itemstackiterator;
+												if (_ist.hurt((int) ((entity.getCapability(RepairAmuletModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new RepairAmuletModVariables.PlayerVariables())).amout_to_repair * (-1)),
+														RandomSource.create(), null)) {
+													_ist.shrink(1);
+													_ist.setDamageValue(0);
+												}
+											}
+											{
+												final int _slotid = (int) slot_number_iterator;
+												final ItemStack _setstack = itemstackiterator.copy();
+												_setstack.setCount(1);
+												entity.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
+													if (capability instanceof IItemHandlerModifiable _modHandlerEntSetSlot)
+														_modHandlerEntSetSlot.setStackInSlot(_slotid, _setstack);
+												});
+											}
 										}
 									}
 								}

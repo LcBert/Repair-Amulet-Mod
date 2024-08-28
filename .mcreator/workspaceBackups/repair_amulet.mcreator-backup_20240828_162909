@@ -264,20 +264,6 @@
         ]
       },
       "path": "~/Amulet"
-    },
-    {
-      "name": "RepairBlockGUI",
-      "type": "gui",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "repair_block_gui",
-      "metadata": {
-        "files": [
-          "src/main/java/net/mcreator/repairamulet/world/inventory/RepairBlockGUIMenu.java",
-          "src/main/java/net/mcreator/repairamulet/client/gui/RepairBlockGUIScreen.java"
-        ]
-      },
-      "path": "~/Block"
     }
   ],
   "variable_elements": [
@@ -316,6 +302,30 @@
       "type": "logic",
       "scope": "player_lifetime",
       "value": "false"
+    },
+    {
+      "name": "amulet_black_list",
+      "type": "arraylist",
+      "scope": "global",
+      "value": "new ArrayList\u003c\u003e()"
+    },
+    {
+      "name": "amulet_white_list",
+      "type": "arraylist",
+      "scope": "global",
+      "value": "new ArrayList\u003c\u003e()"
+    },
+    {
+      "name": "amulet_blacklist",
+      "type": "arraylist",
+      "scope": "global",
+      "value": "new ArrayList\u003c\u003e()"
+    },
+    {
+      "name": "amulet_whitelist",
+      "type": "arraylist",
+      "scope": "global",
+      "value": "new ArrayList\u003c\u003e()"
     }
   ],
   "sound_elements": [],
@@ -336,7 +346,6 @@
       "item.repair_amulet.creative_repair_amulet": "Creative Repair Amulet",
       "item.repair_amulet.advanced_repair_amulet": "Advanced Repair Amulet",
       "item.repair_amulet.ultimate_repair_amulet": "Ultimate Repair Amulet",
-      "gui.repair_amulet.repair_block_gui.label_repair_block": "Repair Block",
       "item.repair_amulet.elite_repair_amulet": "Elite Repair Amulet"
     }
   },
@@ -354,17 +363,13 @@
       {
         "name": "Crafting",
         "children": []
-      },
-      {
-        "name": "Block",
-        "children": []
       }
     ]
   },
   "workspaceSettings": {
     "modid": "repair_amulet",
     "modName": "Repair Amulet",
-    "version": "1.2",
+    "version": "1.3",
     "description": "Repair amulet with different tier",
     "author": "lucab",
     "websiteURL": "https://github.com/LcBert/Repair-Amulet-Mod",

@@ -35,6 +35,8 @@ import java.util.ArrayList;
 public class RepairAmuletModVariables {
 	public static List<Object> tick_list = new ArrayList<>();
 	public static List<Object> amount_list = new ArrayList<>();
+	public static List<Object> amulet_blacklist = new ArrayList<>();
+	public static List<Object> amulet_whitelist = new ArrayList<>();
 
 	@SubscribeEvent
 	public static void init(FMLCommonSetupEvent event) {
@@ -112,8 +114,8 @@ public class RepairAmuletModVariables {
 
 	public static class PlayerVariables {
 		public boolean repair_amulet_is_working = false;
-		public double tick_to_wait = 0;
-		public double amout_to_repair = 0;
+		public double tick_to_wait = 0.0;
+		public double amout_to_repair = 0.0;
 		public boolean repair_amulet_can_work = false;
 
 		public void syncPlayerVariables(Entity entity) {

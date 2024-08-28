@@ -1,0 +1,4 @@
+Added black and white list to config file (repair_amulet-common.toml) to block or allow items to be repaired.
+
+If you insert one or more items on the whitelist, the repair amulet will only repair the specified items and will not read the blacklist.
+If you leave the whitelist blank, the repair amulet will only repair items that do not appear on the blacklist.

@@ -4,7 +4,7 @@
   "definition": {
     "pools": [
       {
-        "category": "basic_repair_amulet",
+        "category": "Basic Repair Amulet",
         "entries": [
           {
             "item": {
@@ -43,7 +43,7 @@
         ]
       },
       {
-        "category": "advanced_repair_amulet",
+        "category": "Advanced Repair Amulet",
         "entries": [
           {
             "item": {
@@ -82,7 +82,7 @@
         ]
       },
       {
-        "category": "elite_repair_amulet",
+        "category": "Elite Repair Amulet",
         "entries": [
           {
             "item": {
@@ -121,7 +121,7 @@
         ]
       },
       {
-        "category": "ultimate_repair_amulet",
+        "category": "Ultimate Repair Amulet",
         "entries": [
           {
             "item": {
@@ -154,6 +154,45 @@
             "comment": "How many damage point will the ring remove",
             "vardisplay": "amount",
             "varname": "ultimate_amount",
+            "enablecomment": true,
+            "stringlist": []
+          }
+        ]
+      },
+      {
+        "category": "Repair List",
+        "entries": [
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 5,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 0.0,
+            "textDefault": "",
+            "comment": "List of items that will not be repaired by the amulet",
+            "vardisplay": "blacklist",
+            "varname": "amulet_blacklist",
+            "enablecomment": true,
+            "stringlist": []
+          },
+          {
+            "item": {
+              "value": ""
+            },
+            "silkTouchMode": 5,
+            "block": {
+              "value": ""
+            },
+            "logicField": 0,
+            "numberField": 0.0,
+            "textDefault": "",
+            "comment": "List of only items that will be repaired by the amulet",
+            "vardisplay": "whitelist",
+            "varname": "amulet_whitelist",
             "enablecomment": true,
             "stringlist": []
           }
