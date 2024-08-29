@@ -1,0 +1,9 @@
+{
+  "_fv": 66,
+  "_type": "curiosslot",
+  "definition": {
+    "texture": "repair_amulet_empty_slot.png",
+    "name": "Repair Amulet",
+    "amount": 1
+  }
+}

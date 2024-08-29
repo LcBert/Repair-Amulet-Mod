@@ -42,76 +42,6 @@
       }
     },
     {
-      "name": "BasicRepairAmulet",
-      "type": "item",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "basic_repair_amulet",
-      "metadata": {
-        "files": [
-          "src/main/resources/assets/repair_amulet/models/item/basic_repair_amulet.json",
-          "src/main/java/net/mcreator/repairamulet/item/BasicRepairAmuletItem.java"
-        ]
-      },
-      "path": "~/Amulet"
-    },
-    {
-      "name": "AdvancedRepairAmulet",
-      "type": "item",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "advanced_repair_amulet",
-      "metadata": {
-        "files": [
-          "src/main/resources/assets/repair_amulet/models/item/advanced_repair_amulet.json",
-          "src/main/java/net/mcreator/repairamulet/item/AdvancedRepairAmuletItem.java"
-        ]
-      },
-      "path": "~/Amulet"
-    },
-    {
-      "name": "EliteRepairAmulet",
-      "type": "item",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "elite_repair_amulet",
-      "metadata": {
-        "files": [
-          "src/main/resources/assets/repair_amulet/models/item/elite_repair_amulet.json",
-          "src/main/java/net/mcreator/repairamulet/item/EliteRepairAmuletItem.java"
-        ]
-      },
-      "path": "~/Amulet"
-    },
-    {
-      "name": "UltimateRepairAmulet",
-      "type": "item",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "ultimate_repair_amulet",
-      "metadata": {
-        "files": [
-          "src/main/resources/assets/repair_amulet/models/item/ultimate_repair_amulet.json",
-          "src/main/java/net/mcreator/repairamulet/item/UltimateRepairAmuletItem.java"
-        ]
-      },
-      "path": "~/Amulet"
-    },
-    {
-      "name": "CreativeRepairAmulet",
-      "type": "item",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "creative_repair_amulet",
-      "metadata": {
-        "files": [
-          "src/main/java/net/mcreator/repairamulet/item/CreativeRepairAmuletItem.java",
-          "src/main/resources/assets/repair_amulet/models/item/creative_repair_amulet.json"
-        ]
-      },
-      "path": "~/Amulet"
-    },
-    {
       "name": "RepairAmuletTab",
       "type": "tab",
       "compiles": true,
@@ -124,7 +54,7 @@
     {
       "name": "CheckAmuletInInvetory",
       "type": "procedure",
-      "compiles": true,
+      "compiles": false,
       "locked_code": false,
       "registry_name": "check_amulet_in_invetory",
       "metadata": {
@@ -135,6 +65,10 @@
           {
             "name": "entity",
             "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ]
       },
@@ -264,6 +198,76 @@
         ]
       },
       "path": "~/Amulet"
+    },
+    {
+      "name": "BasicRepairAmulet",
+      "type": "curiosbauble",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "basic_repair_amulet",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/repair_amulet/models/item/basic_repair_amulet.json",
+          "src/main/java/net/mcreator/repairamulet/item/BasicRepairAmuletItem.java"
+        ]
+      },
+      "path": "~/Amulet/Items"
+    },
+    {
+      "name": "AdvancedRepairAmulet",
+      "type": "curiosbauble",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "advanced_repair_amulet",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/repair_amulet/models/item/advanced_repair_amulet.json",
+          "src/main/java/net/mcreator/repairamulet/item/AdvancedRepairAmuletItem.java"
+        ]
+      },
+      "path": "~/Amulet/Items"
+    },
+    {
+      "name": "EliteRepairAmulet",
+      "type": "curiosbauble",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "elite_repair_amulet",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/repair_amulet/models/item/elite_repair_amulet.json",
+          "src/main/java/net/mcreator/repairamulet/item/EliteRepairAmuletItem.java"
+        ]
+      },
+      "path": "~/Amulet/Items"
+    },
+    {
+      "name": "UltimateRepairAmulet",
+      "type": "curiosbauble",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ultimate_repair_amulet",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/repair_amulet/models/item/ultimate_repair_amulet.json",
+          "src/main/java/net/mcreator/repairamulet/item/UltimateRepairAmuletItem.java"
+        ]
+      },
+      "path": "~/Amulet/Items"
+    },
+    {
+      "name": "CreativeRepairAmulet",
+      "type": "curiosbauble",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "creative_repair_amulet",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/repairamulet/item/CreativeRepairAmuletItem.java",
+          "src/main/resources/assets/repair_amulet/models/item/creative_repair_amulet.json"
+        ]
+      },
+      "path": "~/Amulet/Items"
     }
   ],
   "variable_elements": [
@@ -342,7 +346,12 @@
     "children": [
       {
         "name": "Amulet",
-        "children": []
+        "children": [
+          {
+            "name": "Items",
+            "children": []
+          }
+        ]
       },
       {
         "name": "ConfigFile",

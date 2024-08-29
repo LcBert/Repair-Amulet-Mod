@@ -32,28 +32,27 @@ public class RepairAmuletTooltipProcedure {
 	private static void execute(@Nullable Event event, ItemStack itemstack, List<Component> tooltip) {
 		if (tooltip == null)
 			return;
+		double index = 0;
+		index = -1;
 		if (itemstack.getItem() == RepairAmuletModItems.BASIC_REPAIR_AMULET.get()) {
-			tooltip.add(1,
-					Component.literal(("Repair "
-							+ (("" + (RepairAmuletModVariables.amount_list.get(0) instanceof Double _d ? _d : 0)).substring(0, (int) (("" + (RepairAmuletModVariables.amount_list.get(0) instanceof Double _d ? _d : 0)).length() - 2))) + " every "
-							+ (("" + (RepairAmuletModVariables.tick_list.get(0) instanceof Double _d ? _d : 0)).substring(0, (int) (("" + (RepairAmuletModVariables.tick_list.get(0) instanceof Double _d ? _d : 0)).length() - 2))) + " tick")));
+			index = 0;
 		} else if (itemstack.getItem() == RepairAmuletModItems.ADVANCED_REPAIR_AMULET.get()) {
-			tooltip.add(1,
-					Component.literal(("Repair "
-							+ (("" + (RepairAmuletModVariables.amount_list.get(1) instanceof Double _d ? _d : 0)).substring(0, (int) (("" + (RepairAmuletModVariables.amount_list.get(1) instanceof Double _d ? _d : 0)).length() - 2))) + " every "
-							+ (("" + (RepairAmuletModVariables.tick_list.get(1) instanceof Double _d ? _d : 0)).substring(0, (int) (("" + (RepairAmuletModVariables.tick_list.get(1) instanceof Double _d ? _d : 0)).length() - 2))) + " tick")));
+			index = 1;
 		} else if (itemstack.getItem() == RepairAmuletModItems.ELITE_REPAIR_AMULET.get()) {
-			tooltip.add(1,
-					Component.literal(("Repair "
-							+ (("" + (RepairAmuletModVariables.amount_list.get(2) instanceof Double _d ? _d : 0)).substring(0, (int) (("" + (RepairAmuletModVariables.amount_list.get(2) instanceof Double _d ? _d : 0)).length() - 2))) + " every "
-							+ (("" + (RepairAmuletModVariables.tick_list.get(2) instanceof Double _d ? _d : 0)).substring(0, (int) (("" + (RepairAmuletModVariables.tick_list.get(2) instanceof Double _d ? _d : 0)).length() - 2))) + " tick")));
+			index = 2;
 		} else if (itemstack.getItem() == RepairAmuletModItems.ULTIMATE_REPAIR_AMULET.get()) {
-			tooltip.add(1,
-					Component.literal(("Repair "
-							+ (("" + (RepairAmuletModVariables.amount_list.get(3) instanceof Double _d ? _d : 0)).substring(0, (int) (("" + (RepairAmuletModVariables.amount_list.get(3) instanceof Double _d ? _d : 0)).length() - 2))) + " every "
-							+ (("" + (RepairAmuletModVariables.tick_list.get(3) instanceof Double _d ? _d : 0)).substring(0, (int) (("" + (RepairAmuletModVariables.tick_list.get(3) instanceof Double _d ? _d : 0)).length() - 2))) + " tick")));
+			index = 3;
 		} else if (itemstack.getItem() == RepairAmuletModItems.CREATIVE_REPAIR_AMULET.get()) {
 			tooltip.add(1, Component.literal("Repair items immediately"));
+		}
+		if (index >= 0) {
+			tooltip.add(1,
+					Component.literal(("Repair \u00A76"
+							+ (("" + (RepairAmuletModVariables.amount_list.get((int) index) instanceof Double _d ? _d : 0)).substring(0,
+									(int) (("" + (RepairAmuletModVariables.amount_list.get((int) index) instanceof Double _d ? _d : 0)).length() - 2)))
+							+ "\u00A7r every \u00A76"
+							+ (("" + (RepairAmuletModVariables.tick_list.get((int) index) instanceof Double _d ? _d : 0)).substring(0, (int) (("" + (RepairAmuletModVariables.tick_list.get((int) index) instanceof Double _d ? _d : 0)).length() - 2)))
+							+ "\u00A7r tick")));
 		}
 	}
 }

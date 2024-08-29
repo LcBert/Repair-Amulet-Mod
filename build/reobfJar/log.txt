@@ -137,6 +137,7 @@ Adding Libraries to Inheritance
 Reading Input: C:\Users\lucab\Documents\Github\Minecraft Mod\Repair-Amulet-Mod\build\libs\modid-1.0.jar
 Adding input to inheritance map
 Processing entries
+Conflicting propagated mapping for net/mcreator/repairamulet/item/CreativeRepairAmuletItem/inventoryTick(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/Entity;IZ)V from net/minecraft/world/item/Item/inventoryTick(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/Entity;IZ)V: inventoryTick -> m_6883_
 Conflicting propagated mapping for net/minecraft/world/entity/LivingEntity/lambda$addAdditionalSaveData$3(Lnet/minecraft/nbt/CompoundTag;Lnet/minecraft/nbt/Tag;)V from net/minecraft/world/entity/player/Player/lambda$addAdditionalSaveData$3(Lnet/minecraft/nbt/CompoundTag;Lnet/minecraft/nbt/Tag;)V: lambda$addAdditionalSaveData$3 -> m_219754_
 Conflicting propagated mapping for net/minecraftforge/common/util/FakePlayer/isInvulnerableTo(Lnet/minecraft/world/damagesource/DamageSource;)Z from net/minecraft/server/level/ServerPlayer/isInvulnerableTo(Lnet/minecraft/world/damagesource/DamageSource;)Z: isInvulnerableTo -> m_6673_
 Conflicting propagated mapping for net/minecraftforge/common/util/FakePlayer/canHarmPlayer(Lnet/minecraft/world/entity/player/Player;)Z from net/minecraft/server/level/ServerPlayer/canHarmPlayer(Lnet/minecraft/world/entity/player/Player;)Z: canHarmPlayer -> m_7099_
@@ -153,6 +154,10 @@ Writing Output: C:\Users\lucab\Documents\Github\Minecraft Mod\Repair-Amulet-Mod\
   META-INF/MANIFEST.MF
   META-INF/mods.toml
   assets/
+  assets/curios/
+  assets/curios/textures/
+  assets/curios/textures/slot/
+  assets/curios/textures/slot/repair_amulet_empty_slot.png
   assets/repair_amulet/
   assets/repair_amulet/lang/
   assets/repair_amulet/lang/en_us.json
@@ -176,6 +181,10 @@ Writing Output: C:\Users\lucab\Documents\Github\Minecraft Mod\Repair-Amulet-Mod\
   assets/repair_amulet/textures/screens/repair_amulet_empty_slot.png
   assets/repair_amulet/textures/screens/repair_block_gui.png
   data/
+  data/curios/
+  data/curios/tags/
+  data/curios/tags/items/
+  data/curios/tags/items/repair_amulet_curios_slot.json
   data/repair_amulet/
   data/repair_amulet/recipes/
   data/repair_amulet/recipes/advanced_repair_amulet_crafting.json
@@ -195,7 +204,12 @@ Writing Output: C:\Users\lucab\Documents\Github\Minecraft Mod\Repair-Amulet-Mod\
   net/mcreator/repairamulet/init/
   net/mcreator/repairamulet/init/RepairAmuletModBrewingRecipes.class
   net/mcreator/repairamulet/init/RepairAmuletModConfigs.class
+  net/mcreator/repairamulet/init/RepairAmuletModCuriosProperties.class
+  net/mcreator/repairamulet/init/RepairAmuletModCuriosRenderers.class
+  net/mcreator/repairamulet/init/RepairAmuletModCuriosSlots.class
+  net/mcreator/repairamulet/init/RepairAmuletModCustomCuriosSlots.class
   net/mcreator/repairamulet/init/RepairAmuletModItems.class
+  net/mcreator/repairamulet/init/RepairAmuletModLayerDefinitions.class
   net/mcreator/repairamulet/init/RepairAmuletModTabs.class
   net/mcreator/repairamulet/item/
   net/mcreator/repairamulet/item/AdvancedRepairAmuletItem.class
