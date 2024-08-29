@@ -264,6 +264,19 @@
         ]
       },
       "path": "~/Amulet"
+    },
+    {
+      "name": "Hth",
+      "type": "curiosbauble",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "hth",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/repairamulet/item/HthItem.java",
+          "src/main/resources/assets/repair_amulet/models/item/hth.json"
+        ]
+      }
     }
   ],
   "variable_elements": [
@@ -277,13 +290,13 @@
       "name": "tick_to_wait",
       "type": "number",
       "scope": "player_lifetime",
-      "value": "0"
+      "value": "0.0"
     },
     {
       "name": "amout_to_repair",
       "type": "number",
       "scope": "player_lifetime",
-      "value": "0"
+      "value": "0.0"
     },
     {
       "name": "tick_list",
@@ -304,13 +317,13 @@
       "value": "false"
     },
     {
-      "name": "amulet_black_list",
+      "name": "amulet_blacklist",
       "type": "arraylist",
       "scope": "global",
       "value": "new ArrayList\u003c\u003e()"
     },
     {
-      "name": "amulet_white_list",
+      "name": "amulet_whitelist",
       "type": "arraylist",
       "scope": "global",
       "value": "new ArrayList\u003c\u003e()"
@@ -334,6 +347,7 @@
       "item.repair_amulet.creative_repair_amulet": "Creative Repair Amulet",
       "item.repair_amulet.advanced_repair_amulet": "Advanced Repair Amulet",
       "item.repair_amulet.ultimate_repair_amulet": "Ultimate Repair Amulet",
+      "item.repair_amulet.hth": "Hth",
       "item.repair_amulet.elite_repair_amulet": "Elite Repair Amulet"
     }
   },
@@ -368,6 +382,7 @@
     "dependencies": [],
     "dependants": [],
     "mcreatorDependencies": [
+      "curios_api",
       "jei"
     ],
     "currentGenerator": "forge-1.20.1",

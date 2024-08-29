@@ -24,6 +24,12 @@ description="Repair amulet with different tier"
 
 
 [[dependencies.repair_amulet]]
+    modId="curios_api"
+    mandatory=false
+    versionRange="[0,)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.repair_amulet]]
     modId="jei"
     mandatory=false
     versionRange="[0,)"

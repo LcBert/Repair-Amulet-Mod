@@ -277,13 +277,13 @@
       "name": "tick_to_wait",
       "type": "number",
       "scope": "player_lifetime",
-      "value": "0"
+      "value": "0.0"
     },
     {
       "name": "amout_to_repair",
       "type": "number",
       "scope": "player_lifetime",
-      "value": "0"
+      "value": "0.0"
     },
     {
       "name": "tick_list",
@@ -302,18 +302,6 @@
       "type": "logic",
       "scope": "player_lifetime",
       "value": "false"
-    },
-    {
-      "name": "amulet_black_list",
-      "type": "arraylist",
-      "scope": "global",
-      "value": "new ArrayList\u003c\u003e()"
-    },
-    {
-      "name": "amulet_white_list",
-      "type": "arraylist",
-      "scope": "global",
-      "value": "new ArrayList\u003c\u003e()"
     },
     {
       "name": "amulet_blacklist",
@@ -380,6 +368,7 @@
     "dependencies": [],
     "dependants": [],
     "mcreatorDependencies": [
+      "curios_api",
       "jei"
     ],
     "currentGenerator": "forge-1.20.1",

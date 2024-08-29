@@ -32,6 +32,11 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17/"/>
+	<classpathentry sourcepath="C:/Users/lucab/.mcreator/gradle/caches/forge_gradle/deobf_dependencies/top/theillusivec4/curios/curios-forge/5.4.2+1.20.1_mapped_official_1.20.1/curios-forge-5.4.2+1.20.1_mapped_official_1.20.1-sources.jar" kind="lib" path="C:/Users/lucab/.mcreator/gradle/caches/forge_gradle/deobf_dependencies/top/theillusivec4/curios/curios-forge/5.4.2+1.20.1_mapped_official_1.20.1/curios-forge-5.4.2+1.20.1_mapped_official_1.20.1-api.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value=""/>
+		</attributes>
+	</classpathentry>
 	<classpathentry sourcepath="C:/Users/lucab/.mcreator/gradle/caches/forge_gradle/deobf_dependencies/mezz/jei/jei-1.20.1-common-api/15.3.0.8_mapped_official_1.20.1/jei-1.20.1-common-api-15.3.0.8_mapped_official_1.20.1-sources.jar" kind="lib" path="C:/Users/lucab/.mcreator/gradle/caches/forge_gradle/deobf_dependencies/mezz/jei/jei-1.20.1-common-api/15.3.0.8_mapped_official_1.20.1/jei-1.20.1-common-api-15.3.0.8_mapped_official_1.20.1.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value=""/>
@@ -603,6 +608,11 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry sourcepath="C:/Users/lucab/.mcreator/gradle/caches/modules-2/files-2.1/org.glassfish/javax.json/1.0.4/ef782abad0d3f1d30644c4023a6bbc6fe371e23a/javax.json-1.0.4-sources.jar" kind="lib" path="C:/Users/lucab/.mcreator/gradle/caches/modules-2/files-2.1/org.glassfish/javax.json/1.0.4/3178f73569fd7a1e5ffc464e680f7a8cc784b85a/javax.json-1.0.4.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/lucab/.mcreator/gradle/caches/forge_gradle/deobf_dependencies/top/theillusivec4/curios/curios-forge/5.4.2+1.20.1_mapped_official_1.20.1/curios-forge-5.4.2+1.20.1_mapped_official_1.20.1-sources.jar" kind="lib" path="C:/Users/lucab/.mcreator/gradle/caches/forge_gradle/deobf_dependencies/top/theillusivec4/curios/curios-forge/5.4.2+1.20.1_mapped_official_1.20.1/curios-forge-5.4.2+1.20.1_mapped_official_1.20.1.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value="main,test"/>
 		</attributes>

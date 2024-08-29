@@ -17,7 +17,7 @@ import net.mcreator.repairamulet.RepairAmuletMod;
 public class RepairAmuletModTabs {
 	public static final DeferredRegister<CreativeModeTab> REGISTRY = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, RepairAmuletMod.MODID);
 	public static final RegistryObject<CreativeModeTab> REPAIR_AMULET_TAB = REGISTRY.register("repair_amulet_tab",
-			() -> CreativeModeTab.builder().title(Component.translatable("item_group.repair_amulet.repair_amulet_tab")).icon(() -> new ItemStack(RepairAmuletModItems.ELITE_REPAIR_AMULET.get())).displayItems((parameters, tabData) -> {
+			() -> CreativeModeTab.builder().title(Component.translatable("item_group.repair_amulet.repair_amulet_tab")).icon(() -> new ItemStack(RepairAmuletModItems.ADVANCED_REPAIR_AMULET.get())).displayItems((parameters, tabData) -> {
 				tabData.accept(RepairAmuletModItems.BASIC_REPAIR_AMULET.get());
 				tabData.accept(RepairAmuletModItems.ADVANCED_REPAIR_AMULET.get());
 				tabData.accept(RepairAmuletModItems.ELITE_REPAIR_AMULET.get());

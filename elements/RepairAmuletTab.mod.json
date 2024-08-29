@@ -4,7 +4,7 @@
   "definition": {
     "name": "Repair Amulet",
     "icon": {
-      "value": "CUSTOM:EliteRepairAmulet"
+      "value": "CUSTOM:AdvancedRepairAmulet"
     },
     "showSearch": false
   }
