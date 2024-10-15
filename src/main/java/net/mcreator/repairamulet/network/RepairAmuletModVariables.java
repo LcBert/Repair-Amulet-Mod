@@ -35,8 +35,8 @@ import java.util.ArrayList;
 public class RepairAmuletModVariables {
 	public static List<Object> tick_list = new ArrayList<>();
 	public static List<Object> amount_list = new ArrayList<>();
-	public static List<Object> amulet_blacklist = new ArrayList<>();
-	public static List<Object> amulet_whitelist = new ArrayList<>();
+	public static List<Object> item_list = new ArrayList<>();
+	public static boolean list_is_blacklist = false;
 
 	@SubscribeEvent
 	public static void init(FMLCommonSetupEvent event) {

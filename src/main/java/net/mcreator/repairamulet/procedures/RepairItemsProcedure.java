@@ -70,24 +70,24 @@ public class RepairItemsProcedure {
 								ItemStack itemstackiterator = _iitemhandlerref.get().getStackInSlot(_idx).copy();
 								if (!(slot_number_iterator == selected_slot_number)) {
 									if (itemstackiterator.getOrCreateTag().getDouble("Damage") > 0) {
-										if (RepairAmuletModVariables.amulet_whitelist.size() > 0) {
-											can_repair = false;
+										if (RepairAmuletModVariables.list_is_blacklist) {
+											can_repair = true;
 											i = 0;
-											for (int index0 = 0; index0 < (int) RepairAmuletModVariables.amulet_whitelist.size(); index0++) {
+											for (int index0 = 0; index0 < (int) RepairAmuletModVariables.item_list.size(); index0++) {
 												if (itemstackiterator.getItem() == ForgeRegistries.ITEMS
-														.getValue(new ResourceLocation(((RepairAmuletModVariables.amulet_whitelist.get((int) i) instanceof String _s ? _s : "")).toLowerCase(java.util.Locale.ENGLISH)))) {
-													can_repair = true;
+														.getValue(new ResourceLocation(((RepairAmuletModVariables.item_list.get((int) i) instanceof String _s ? _s : "")).toLowerCase(java.util.Locale.ENGLISH)))) {
+													can_repair = false;
 													break;
 												}
 												i = i + 1;
 											}
 										} else {
-											can_repair = true;
+											can_repair = false;
 											i = 0;
-											for (int index1 = 0; index1 < (int) RepairAmuletModVariables.amulet_blacklist.size(); index1++) {
+											for (int index1 = 0; index1 < (int) RepairAmuletModVariables.item_list.size(); index1++) {
 												if (itemstackiterator.getItem() == ForgeRegistries.ITEMS
-														.getValue(new ResourceLocation(((RepairAmuletModVariables.amulet_blacklist.get((int) i) instanceof String _s ? _s : "")).toLowerCase(java.util.Locale.ENGLISH)))) {
-													can_repair = false;
+														.getValue(new ResourceLocation(((RepairAmuletModVariables.item_list.get((int) i) instanceof String _s ? _s : "")).toLowerCase(java.util.Locale.ENGLISH)))) {
+													can_repair = true;
 													break;
 												}
 												i = i + 1;

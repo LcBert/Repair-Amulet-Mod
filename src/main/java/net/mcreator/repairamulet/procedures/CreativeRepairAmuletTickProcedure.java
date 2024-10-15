@@ -31,18 +31,16 @@ public class CreativeRepairAmuletTickProcedure {
 			if (_iitemhandlerref.get() != null) {
 				for (int _idx = 0; _idx < _iitemhandlerref.get().getSlots(); _idx++) {
 					ItemStack itemstackiterator = _iitemhandlerref.get().getStackInSlot(_idx).copy();
-					if (!(slot_number_iterator == selected_slot_number)) {
-						if (itemstackiterator.getOrCreateTag().getDouble("Damage") > 0) {
-							itemstackiterator.setDamageValue(0);
-							{
-								final int _slotid = (int) slot_number_iterator;
-								final ItemStack _setstack = itemstackiterator.copy();
-								_setstack.setCount(1);
-								entity.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
-									if (capability instanceof IItemHandlerModifiable _modHandlerEntSetSlot)
-										_modHandlerEntSetSlot.setStackInSlot(_slotid, _setstack);
-								});
-							}
+					if (itemstackiterator.getOrCreateTag().getDouble("Damage") > 0) {
+						itemstackiterator.setDamageValue(0);
+						{
+							final int _slotid = (int) slot_number_iterator;
+							final ItemStack _setstack = itemstackiterator.copy();
+							_setstack.setCount(1);
+							entity.getCapability(ForgeCapabilities.ITEM_HANDLER, null).ifPresent(capability -> {
+								if (capability instanceof IItemHandlerModifiable _modHandlerEntSetSlot)
+									_modHandlerEntSetSlot.setStackInSlot(_slotid, _setstack);
+							});
 						}
 					}
 					slot_number_iterator = slot_number_iterator + 1;

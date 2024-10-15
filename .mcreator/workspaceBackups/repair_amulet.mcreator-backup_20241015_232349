@@ -93,7 +93,12 @@
         "files": [
           "src/main/java/net/mcreator/repairamulet/procedures/ReadConfigFileProcedure.java"
         ],
-        "dependencies": []
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
       },
       "path": "~/ConfigFile"
     },
@@ -264,6 +269,31 @@
         ]
       },
       "path": "~/Amulet/Items"
+    },
+    {
+      "name": "RepairAmuletCuriosSlot",
+      "type": "curiosslot",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "repair_amulet_curios_slot",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/curios/tags/items/repair_amulet_curios_slot.json"
+        ]
+      }
+    },
+    {
+      "name": "ReloadMod",
+      "type": "command",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "reload_mod",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/repairamulet/command/ReloadModCommand.java"
+        ]
+      },
+      "path": "~/ConfigFile"
     }
   ],
   "variable_elements": [
@@ -304,16 +334,16 @@
       "value": "false"
     },
     {
-      "name": "amulet_blacklist",
+      "name": "item_list",
       "type": "arraylist",
       "scope": "global",
       "value": "new ArrayList\u003c\u003e()"
     },
     {
-      "name": "amulet_whitelist",
-      "type": "arraylist",
+      "name": "list_is_blacklist",
+      "type": "logic",
       "scope": "global",
-      "value": "new ArrayList\u003c\u003e()"
+      "value": "false"
     }
   ],
   "sound_elements": [],
@@ -331,6 +361,7 @@
     "en_us": {
       "item.repair_amulet.basic_repair_amulet": "Basic Repair Amulet",
       "item_group.repair_amulet.repair_amulet_tab": "Repair Amulet",
+      "curios.identifier.repair_amulet_curios_slot": "Repair Amulet",
       "item.repair_amulet.creative_repair_amulet": "Creative Repair Amulet",
       "item.repair_amulet.advanced_repair_amulet": "Advanced Repair Amulet",
       "item.repair_amulet.ultimate_repair_amulet": "Ultimate Repair Amulet",

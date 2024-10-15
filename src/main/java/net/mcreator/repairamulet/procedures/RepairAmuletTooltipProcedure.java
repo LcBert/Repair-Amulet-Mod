@@ -43,7 +43,7 @@ public class RepairAmuletTooltipProcedure {
 		} else if (itemstack.getItem() == RepairAmuletModItems.ULTIMATE_REPAIR_AMULET.get()) {
 			index = 3;
 		} else if (itemstack.getItem() == RepairAmuletModItems.CREATIVE_REPAIR_AMULET.get()) {
-			tooltip.add(1, Component.literal("Repair items immediately"));
+			tooltip.add(1, Component.literal("\u00A75Repair items immediately"));
 		}
 		if (index >= 0) {
 			tooltip.add(1,

@@ -93,7 +93,12 @@
         "files": [
           "src/main/java/net/mcreator/repairamulet/procedures/ReadConfigFileProcedure.java"
         ],
-        "dependencies": []
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
       },
       "path": "~/ConfigFile"
     },
@@ -276,6 +281,19 @@
           "src/main/resources/data/curios/tags/items/repair_amulet_curios_slot.json"
         ]
       }
+    },
+    {
+      "name": "ReloadMod",
+      "type": "command",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "reload_mod",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/repairamulet/command/ReloadModCommand.java"
+        ]
+      },
+      "path": "~/ConfigFile"
     }
   ],
   "variable_elements": [
@@ -316,16 +334,16 @@
       "value": "false"
     },
     {
-      "name": "amulet_blacklist",
+      "name": "item_list",
       "type": "arraylist",
       "scope": "global",
       "value": "new ArrayList\u003c\u003e()"
     },
     {
-      "name": "amulet_whitelist",
-      "type": "arraylist",
+      "name": "list_is_blacklist",
+      "type": "logic",
       "scope": "global",
-      "value": "new ArrayList\u003c\u003e()"
+      "value": "false"
     }
   ],
   "sound_elements": [],
