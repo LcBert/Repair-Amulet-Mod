@@ -1,2 +1,2 @@
-Added custom curios slot for the amulet
-Curios API (Forge/NeoForge) need to be installed
+Change blacklist/whitelist with item_list and added list_type to specify the list type
+Now creative repair amulet repair also the item in hand
