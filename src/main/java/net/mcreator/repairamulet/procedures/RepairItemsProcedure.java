@@ -68,7 +68,7 @@ public class RepairItemsProcedure {
 						if (_iitemhandlerref.get() != null) {
 							for (int _idx = 0; _idx < _iitemhandlerref.get().getSlots(); _idx++) {
 								ItemStack itemstackiterator = _iitemhandlerref.get().getStackInSlot(_idx).copy();
-								if (!(slot_number_iterator == selected_slot_number)) {
+								if (!(slot_number_iterator == selected_slot_number && (entity.getCapability(RepairAmuletModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new RepairAmuletModVariables.PlayerVariables())).player_is_mining)) {
 									if (itemstackiterator.getOrCreateTag().getDouble("Damage") > 0) {
 										if (RepairAmuletModVariables.list_is_blacklist) {
 											can_repair = true;

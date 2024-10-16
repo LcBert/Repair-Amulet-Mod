@@ -1,2 +1,0 @@
-Change blacklist/whitelist with item_list and added list_type to specify the list type
-Now creative repair amulet repair also the item in hand

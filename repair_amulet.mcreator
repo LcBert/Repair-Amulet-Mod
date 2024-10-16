@@ -294,6 +294,44 @@
         ]
       },
       "path": "~/ConfigFile"
+    },
+    {
+      "name": "CheckPlayerMining",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "check_player_mining",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/repairamulet/procedures/CheckPlayerMiningProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Amulet"
+    },
+    {
+      "name": "CheckPlayerMined",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "check_player_mined",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/repairamulet/procedures/CheckPlayerMinedProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Amulet"
     }
   ],
   "variable_elements": [
@@ -344,6 +382,12 @@
       "type": "logic",
       "scope": "global",
       "value": "false"
+    },
+    {
+      "name": "player_is_mining",
+      "type": "logic",
+      "scope": "player_persistent",
+      "value": "false"
     }
   ],
   "sound_elements": [],
@@ -393,7 +437,7 @@
   "workspaceSettings": {
     "modid": "repair_amulet",
     "modName": "Repair Amulet",
-    "version": "1.5",
+    "version": "2.0",
     "description": "Repair amulet with different tier",
     "author": "lucab",
     "websiteURL": "https://github.com/LcBert/Repair-Amulet-Mod",

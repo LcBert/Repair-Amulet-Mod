@@ -73,6 +73,7 @@ public class RepairAmuletModVariables {
 			event.getOriginal().revive();
 			PlayerVariables original = ((PlayerVariables) event.getOriginal().getCapability(PLAYER_VARIABLES_CAPABILITY, null).orElse(new PlayerVariables()));
 			PlayerVariables clone = ((PlayerVariables) event.getEntity().getCapability(PLAYER_VARIABLES_CAPABILITY, null).orElse(new PlayerVariables()));
+			clone.player_is_mining = original.player_is_mining;
 			if (!event.isWasDeath()) {
 				clone.repair_amulet_is_working = original.repair_amulet_is_working;
 				clone.tick_to_wait = original.tick_to_wait;
@@ -117,6 +118,7 @@ public class RepairAmuletModVariables {
 		public double tick_to_wait = 0.0;
 		public double amout_to_repair = 0.0;
 		public boolean repair_amulet_can_work = false;
+		public boolean player_is_mining = false;
 
 		public void syncPlayerVariables(Entity entity) {
 			if (entity instanceof ServerPlayer serverPlayer)
@@ -129,6 +131,7 @@ public class RepairAmuletModVariables {
 			nbt.putDouble("tick_to_wait", tick_to_wait);
 			nbt.putDouble("amout_to_repair", amout_to_repair);
 			nbt.putBoolean("repair_amulet_can_work", repair_amulet_can_work);
+			nbt.putBoolean("player_is_mining", player_is_mining);
 			return nbt;
 		}
 
@@ -138,6 +141,7 @@ public class RepairAmuletModVariables {
 			tick_to_wait = nbt.getDouble("tick_to_wait");
 			amout_to_repair = nbt.getDouble("amout_to_repair");
 			repair_amulet_can_work = nbt.getBoolean("repair_amulet_can_work");
+			player_is_mining = nbt.getBoolean("player_is_mining");
 		}
 	}
 
@@ -166,6 +170,7 @@ public class RepairAmuletModVariables {
 					variables.tick_to_wait = message.data.tick_to_wait;
 					variables.amout_to_repair = message.data.amout_to_repair;
 					variables.repair_amulet_can_work = message.data.repair_amulet_can_work;
+					variables.player_is_mining = message.data.player_is_mining;
 				}
 			});
 			context.setPacketHandled(true);

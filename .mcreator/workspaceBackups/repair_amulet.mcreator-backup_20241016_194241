@@ -294,6 +294,25 @@
         ]
       },
       "path": "~/ConfigFile"
+    },
+    {
+      "name": "G",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "g",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/repairamulet/procedures/GProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Amulet"
     }
   ],
   "variable_elements": [

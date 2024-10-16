@@ -228,6 +228,8 @@ Writing Output: C:\Users\lucab\Documents\Github\Minecraft Mod\Repair-Amulet-Mod\
   net/mcreator/repairamulet/network/RepairAmuletModVariables.class
   net/mcreator/repairamulet/procedures/
   net/mcreator/repairamulet/procedures/CheckAmuletInInvetoryProcedure.class
+  net/mcreator/repairamulet/procedures/CheckPlayerMinedProcedure.class
+  net/mcreator/repairamulet/procedures/CheckPlayerMiningProcedure.class
   net/mcreator/repairamulet/procedures/CreativeRepairAmuletTickProcedure$1.class
   net/mcreator/repairamulet/procedures/CreativeRepairAmuletTickProcedure.class
   net/mcreator/repairamulet/procedures/ReadConfigFileProcedure.class
