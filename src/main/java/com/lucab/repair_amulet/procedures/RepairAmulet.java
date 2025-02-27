@@ -1,5 +1,6 @@
 package com.lucab.repair_amulet.procedures;
 
+import com.lucab.repair_amulet.Config;
 import com.lucab.repair_amulet.main;
 import com.lucab.repair_amulet.network.ModVariables;
 
@@ -19,9 +20,22 @@ public class RepairAmulet {
                 int repair_amount_value = player.getData(ModVariables.PLAYER_VARIABLES).repair_amount_value;
 
                 player.getInventory().items.forEach(item -> {
-                    if (item.isDamageableItem())
-                        item.setDamageValue(
-                                repair_amount_value != -1 ? (item.getDamageValue() - repair_amount_value) : 0);
+                    boolean can_repair = true;
+                    if (item.isDamageableItem()) {
+                        if (Config.items_list.size() > 0 && Config.items_list.toArray()[0] != "") {
+                            if (!Config.list_blacklist) {
+                                can_repair = Config.items_list.contains(item.getItem());
+                            } else {
+                                can_repair = !Config.items_list.contains(item.getItem());
+                            }
+                        }
+
+                        if (can_repair)
+                            item.setDamageValue(
+                                    repair_amount_value != -1
+                                            ? (item.getDamageValue() - repair_amount_value)
+                                            : 0);
+                    }
                 });
 
                 if (repair_tick_value != -1)
