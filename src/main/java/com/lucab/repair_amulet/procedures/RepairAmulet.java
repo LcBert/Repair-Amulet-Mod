@@ -22,32 +22,36 @@ public class RepairAmulet {
                 player.getInventory().items.forEach(item -> {
                     boolean can_repair = true;
                     if (item.isDamageableItem()) {
-                        if (Config.items_list.size() > 0 && Config.items_list.toArray()[0] != "") {
-                            if (!Config.list_blacklist) {
-                                can_repair = Config.items_list.contains(item.getItem());
-                            } else {
-                                can_repair = !Config.items_list.contains(item.getItem());
+                        if (player.getData(ModVariables.PLAYER_VARIABLES).amulet_in_inventory != "creative") {
+                            if (Config.items_list.size() > 0 && Config.items_list.toArray()[0] != "") {
+                                if (!Config.list_blacklist) {
+                                    can_repair = Config.items_list.contains(item.getItem());
+                                } else {
+                                    can_repair = !Config.items_list.contains(item.getItem());
+                                }
                             }
                         }
 
-                        if (can_repair)
+                        if (can_repair && item.getDamageValue() > 0) {
                             item.setDamageValue(
-                                    repair_amount_value != -1
-                                            ? (item.getDamageValue() - repair_amount_value)
-                                            : 0);
+                                    repair_amount_value != -1 ? (item.getDamageValue() - repair_amount_value) : 0);
+                        }
                     }
                 });
 
                 if (repair_tick_value != -1)
                     main.queueServerWork(repair_tick_value, () -> {
-                        player.getData(ModVariables.PLAYER_VARIABLES).amulet_is_running = false;
-                        player.getData(ModVariables.PLAYER_VARIABLES).syncPlayerVariables(player);
+                        reset_running(player);
                     });
                 else {
-                    player.getData(ModVariables.PLAYER_VARIABLES).amulet_is_running = false;
-                    player.getData(ModVariables.PLAYER_VARIABLES).syncPlayerVariables(player);
+                    reset_running(player);
                 }
             }
         }
+    }
+
+    private static void reset_running(Player player) {
+        player.getData(ModVariables.PLAYER_VARIABLES).amulet_is_running = false;
+        player.getData(ModVariables.PLAYER_VARIABLES).syncPlayerVariables(player);
     }
 }

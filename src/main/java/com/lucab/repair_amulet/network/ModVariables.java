@@ -72,6 +72,7 @@ public class ModVariables {
 
     public static class PlayerVariables implements INBTSerializable<CompoundTag> {
         public boolean amulet_is_running = false;
+        public String amulet_in_inventory = "";
         public boolean have_amulet = false;
         public int repair_tick_value = 0;
         public int repair_amount_value = 0;
@@ -81,6 +82,7 @@ public class ModVariables {
         public CompoundTag serializeNBT(HolderLookup.Provider lookupProvider) {
             CompoundTag nbt = new CompoundTag();
             nbt.putBoolean("amulet_is_running", amulet_is_running);
+            nbt.putString("amulet_in_inventory", amulet_in_inventory);
             nbt.putBoolean("have_amulet", have_amulet);
             nbt.putInt("repair_tick_value", repair_tick_value);
             nbt.putInt("repair_amount_value", repair_amount_value);
@@ -91,6 +93,7 @@ public class ModVariables {
         @Override
         public void deserializeNBT(HolderLookup.Provider lookupProvider, CompoundTag nbt) {
             amulet_is_running = nbt.getBoolean("amulet_is_running");
+            amulet_in_inventory = nbt.getString("amulet_in_inventory");
             have_amulet = nbt.getBoolean("have_amulet");
             repair_tick_value = nbt.getInt("repair_tick_value");
             repair_amount_value = nbt.getInt("repair_amount_value");
