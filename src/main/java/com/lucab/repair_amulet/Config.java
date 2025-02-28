@@ -59,7 +59,6 @@ public class Config {
                         .pop()
                         .push("Items List")
                         .comment("Items list to consider during repair")
-                        // .defineListAllowEmpty("Items", List.of(""), Config::validateItem);
                         .defineListAllowEmpty("Items", List.of(""), null, Config::validateItem);
 
         private static final ModConfigSpec.BooleanValue ListBlacklist = BUILDER
