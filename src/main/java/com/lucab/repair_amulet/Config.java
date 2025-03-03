@@ -19,7 +19,7 @@ public class Config {
         private static final ModConfigSpec.IntValue BasicTickValue = BUILDER
                         .push("Basic Repair Amulet")
                         .comment("Repair delay for Basic Repair Amulet")
-                        .defineInRange("Tick", 200, 0, Integer.MAX_VALUE);
+                        .defineInRange("Tick", 100, 0, Integer.MAX_VALUE);
 
         private static final ModConfigSpec.IntValue BasicAmountValue = BUILDER
                         .comment("Repair amount for Basic Repair Amulet")
@@ -29,31 +29,31 @@ public class Config {
                         .pop()
                         .push("Advanced Repair Amulet")
                         .comment("Repair delay for Advanced Repair Amulet")
-                        .defineInRange("Tick", 100, 0, Integer.MAX_VALUE);
+                        .defineInRange("Tick", 50, 0, Integer.MAX_VALUE);
 
         private static final ModConfigSpec.IntValue AdvancedAmountValue = BUILDER
                         .comment("Repair amount for Advanced Repair Amulet")
-                        .defineInRange("Amount", 2, 0, Integer.MAX_VALUE);
+                        .defineInRange("Amount", 1, 0, Integer.MAX_VALUE);
 
         private static final ModConfigSpec.IntValue EliteTickValue = BUILDER
                         .pop()
                         .push("Elite Repair Amulet")
                         .comment("Repair delay for Elite Repair Amulet")
-                        .defineInRange("Tick", 50, 0, Integer.MAX_VALUE);
+                        .defineInRange("Tick", 20, 0, Integer.MAX_VALUE);
 
         private static final ModConfigSpec.IntValue EliteAmountValue = BUILDER
                         .comment("Repair amount for Elite Repair Amulet")
-                        .defineInRange("Amount", 4, 0, Integer.MAX_VALUE);
+                        .defineInRange("Amount", 1, 0, Integer.MAX_VALUE);
 
         private static final ModConfigSpec.IntValue UltimateTickValue = BUILDER
                         .pop()
                         .push("Ultimate Repair Amulet")
                         .comment("Repair delay for Ultimate Repair Amulet")
-                        .defineInRange("Tick", 25, 0, Integer.MAX_VALUE);
+                        .defineInRange("Tick", 5, 0, Integer.MAX_VALUE);
 
         private static final ModConfigSpec.IntValue UltimateAmountValue = BUILDER
                         .comment("Repair amount for Ultimate Repair Amulet")
-                        .defineInRange("Amount", 8, 0, Integer.MAX_VALUE);
+                        .defineInRange("Amount", 1, 0, Integer.MAX_VALUE);
 
         private static final ModConfigSpec.ConfigValue<List<? extends String>> ItemsListValue = BUILDER
                         .pop()
