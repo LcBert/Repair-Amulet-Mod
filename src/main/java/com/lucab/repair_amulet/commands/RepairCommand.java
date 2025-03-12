@@ -21,23 +21,23 @@ public class RepairCommand {
                 .then(Commands.argument("player", EntityArgument.players())
                         .then(Commands.argument("amount", IntegerArgumentType.integer(0, Integer.MAX_VALUE))
                                 .executes(arguments -> {
-                                    Entity entities = arguments.getSource().getEntity();
-
-                                    if (entities instanceof Player _player && !_player.level().isClientSide) {
-                                        ItemStack item = _player.getItemInHand(_player.getUsedItemHand());
-                                        if (Item.getId(item.getItem()) == Item.getId(ItemStack.EMPTY.getItem())) {
-                                            _player.displayClientMessage(Component.literal("No item selected"), false);
-                                            return -1;
-                                        } else if (!item.isDamageableItem()) {
-                                            _player.displayClientMessage(Component.literal("Item is not damageable"),
-                                                    false);
-                                            return -1;
-                                        } else {
-                                            item.setDamageValue(
-                                                    item.getDamageValue() - arguments.getArgument(
-                                                            "amount", Integer.class));
+                                    EntityArgument.getEntities(arguments, "players").forEach(entity -> {
+                                        if (entity instanceof Player _player && !_player.level().isClientSide) {
+                                            ItemStack item = _player.getItemInHand(_player.getUsedItemHand());
+                                            if (Item.getId(item.getItem()) == Item.getId(ItemStack.EMPTY.getItem())) {
+                                                _player.displayClientMessage(Component.literal("No item selected"),
+                                                        false);
+                                            } else if (!item.isDamageableItem()) {
+                                                _player.displayClientMessage(
+                                                        Component.literal("Item is not damageable"),
+                                                        false);
+                                            } else {
+                                                item.setDamageValue(
+                                                        item.getDamageValue() - arguments.getArgument(
+                                                                "amount", Integer.class));
+                                            }
                                         }
-                                    }
+                                    });
 
                                     return 0;
                                 }))));
