@@ -1,5 +1,7 @@
 package com.lucab.repair_amulet.procedures;
 
+import java.util.ArrayList;
+
 import javax.annotation.Nullable;
 
 import com.lucab.repair_amulet.Config;
@@ -12,13 +14,15 @@ import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.Event;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.event.tick.PlayerTickEvent;
+import net.neoforged.neoforge.event.tick.LevelTickEvent;
 
 @EventBusSubscriber
 public class CheckAmuletInInventory {
     @SubscribeEvent
-    public static void onPlayerTick(PlayerTickEvent.Post event) {
-        execute(event, event.getEntity());
+    public static void onWorldTick(LevelTickEvent.Post event) {
+        for (Entity entityiterator : new ArrayList<>(event.getLevel().players())) {
+            execute(entityiterator);
+        }
     }
 
     public static void execute(Entity entity) {
