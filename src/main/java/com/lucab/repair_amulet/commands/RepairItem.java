@@ -13,7 +13,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
 
 @EventBusSubscriber
-public class RepairCommand {
+public class RepairItem {
     @SubscribeEvent
     public static void registerCommand(RegisterCommandsEvent event) {
         event.getDispatcher().register(Commands.literal("repair_item").requires(s -> s.hasPermission(2))
@@ -21,13 +21,13 @@ public class RepairCommand {
                         .then(Commands.argument("amount", IntegerArgumentType.integer(0, Integer.MAX_VALUE))
                                 .executes(arguments -> {
                                     EntityArgument.getEntities(arguments, "players").forEach(entity -> {
-                                        if (entity instanceof Player _player && !_player.level().isClientSide) {
-                                            ItemStack item = _player.getItemInHand(_player.getUsedItemHand());
+                                        if (entity instanceof Player player && !player.level().isClientSide) {
+                                            ItemStack item = player.getItemInHand(player.getUsedItemHand());
                                             if (Item.getId(item.getItem()) == Item.getId(ItemStack.EMPTY.getItem())) {
-                                                _player.displayClientMessage(Component.literal("No item selected"),
+                                                player.displayClientMessage(Component.literal("No item selected"),
                                                         false);
                                             } else if (!item.isDamageableItem()) {
-                                                _player.displayClientMessage(
+                                                player.displayClientMessage(
                                                         Component.literal("Item is not damageable"),
                                                         false);
                                             } else {
