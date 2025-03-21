@@ -24,10 +24,13 @@ public class DamageItem {
                                         if (entity instanceof Player player && !player.level().isClientSide) {
                                             ItemStack item = player.getItemInHand(player.getUsedItemHand());
                                             if (Item.getId(item.getItem()) == Item.getId(ItemStack.EMPTY.getItem())) {
-                                                player.displayClientMessage(Component.literal("No item selected"),
+                                                player.displayClientMessage(
+                                                        Component.translatable(
+                                                                "text.repair_amulet.command.damage_item.no_select"),
                                                         false);
                                             } else if (!item.isDamageableItem()) {
-                                                player.displayClientMessage(Component.literal("Item is not damageable"),
+                                                player.displayClientMessage(Component.translatable(
+                                                        "text.repair_amulet.command.damage_item.item_no_damageable"),
                                                         false);
                                             } else {
                                                 item.setDamageValue(
@@ -44,15 +47,14 @@ public class DamageItem {
                 .then(Commands.argument("players", EntityArgument.players())
                         .executes(arguments -> {
                             EntityArgument.getEntities(arguments, "players").forEach(entity -> {
-                                if (entity instanceof Player _player && !_player.level().isClientSide) {
-                                    ItemStack item = _player.getItemInHand(_player.getUsedItemHand());
+                                if (entity instanceof Player player && !player.level().isClientSide) {
+                                    ItemStack item = player.getItemInHand(player.getUsedItemHand());
                                     if (Item.getId(item.getItem()) == Item.getId(ItemStack.EMPTY.getItem())) {
-                                        _player.displayClientMessage(Component.literal("No item selected"),
-                                                false);
+                                        player.displayClientMessage(Component.translatable(
+                                                "text.repair_amulet.command.damage_item.no_select"), false);
                                     } else if (!item.isDamageableItem()) {
-                                        _player.displayClientMessage(
-                                                Component.literal("Item is not damageable"),
-                                                false);
+                                        player.displayClientMessage(Component.translatable(
+                                                "text.repair_amulet.command.damage_item.item_no_damageable"), false);
                                     } else {
                                         item.setDamageValue(item.getMaxDamage());
                                     }

@@ -33,22 +33,24 @@ public class Tooltips {
             return;
 
         if (itemstack.getItem() == ItemsRegistry.BASIC_REPAIR_AMULET.get())
-            tooltip.add(1, Component.literal(
-                    String.format("Repairs %d damage every %d ticks", Config.basic_amount, Config.basic_tick)));
+            tooltip.add(1,
+                    Component.translatable("tooltip.repair_amulet.basic", Config.basic_amount, Config.basic_tick));
 
         if (itemstack.getItem() == ItemsRegistry.ADVANCED_REPAIR_AMULET.get())
-            tooltip.add(1, Component.literal(
-                    String.format("Repairs %d damage every %d ticks", Config.advanced_amount, Config.advanced_tick)));
+            tooltip.add(1,
+                    Component.translatable("tooltip.repair_amulet.advanced", Config.advanced_amount,
+                            Config.advanced_tick));
 
         if (itemstack.getItem() == ItemsRegistry.ELITE_REPAIR_AMULET.get())
-            tooltip.add(1, Component.literal(
-                    String.format("Repairs %d damage every %d ticks", Config.elite_amount, Config.elite_tick)));
+            tooltip.add(1,
+                    Component.translatable("tooltip.repair_amulet.elite", Config.elite_amount, Config.elite_tick));
 
         if (itemstack.getItem() == ItemsRegistry.ULTIMATE_REPAIR_AMULET.get())
-            tooltip.add(1, Component.literal(
-                    String.format("Repairs %d damage every %d ticks", Config.ultimate_amount, Config.ultimate_tick)));
+            tooltip.add(1,
+                    Component.translatable("tooltip.repair_amulet.ultimate", Config.ultimate_amount,
+                            Config.ultimate_tick));
 
         if (itemstack.getItem() == ItemsRegistry.CREATIVE_REPAIR_AMULET.get())
-            tooltip.add(1, Component.literal("Repairs items instantly"));
+            tooltip.add(1, Component.translatable("tooltip.repair_amulet.creative"));
     }
 }

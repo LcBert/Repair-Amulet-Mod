@@ -24,10 +24,14 @@ public class SetDurability {
                                         if (entity instanceof Player player && !player.level().isClientSide) {
                                             ItemStack item = player.getItemInHand(player.getUsedItemHand());
                                             if (Item.getId(item.getItem()) == Item.getId(ItemStack.EMPTY.getItem())) {
-                                                player.displayClientMessage(Component.literal("No item selected"),
+                                                player.displayClientMessage(
+                                                        Component.translatable(
+                                                                "text.repair_amulet.command.set_durability.no_select"),
                                                         false);
                                             } else if (!item.isDamageableItem()) {
-                                                player.displayClientMessage(Component.literal("Item is not damageable"),
+                                                player.displayClientMessage(
+                                                        Component.translatable(
+                                                                "text.repair_amulet.command.set_durability.item_no_damageable"),
                                                         false);
                                             } else {
                                                 item.setDamageValue(item.getMaxDamage()

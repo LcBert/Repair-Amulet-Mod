@@ -5,5 +5,16 @@
     "item.repair_amulet.elite_repair_amulet": "Elite Repair Amulet",
     "item.repair_amulet.ultimate_repair_amulet": "Ultimate Repair Amulet",
     "item.repair_amulet.creative_repair_amulet": "Creative Repair Amulet",
-    "curios.identifier.repair_amulet": "Repair Amulet"
+    "curios.identifier.repair_amulet": "Repair Amulet",
+    "text.repair_amulet.command.repair_item.no_select": "No Selected Item",
+    "text.repair_amulet.command.repair_item.item_no_damageable": "Item is not damageable",
+    "text.repair_amulet.command.damage_item.no_select": "No Selected Item",
+    "text.repair_amulet.command.damage_item.item_no_damageable": "Item is not damageable",
+    "text.repair_amulet.command.set_durability.no_select": "No Selected Item",
+    "text.repair_amulet.command.set_durability.item_no_damageable": "Item is not damageable",
+    "tooltip.repair_amulet.basic": "Repairs %d damage every %d ticks",
+    "tooltip.repair_amulet.advanced": "Repairs %d damage every %d ticks",
+    "tooltip.repair_amulet.elite": "Repairs %d damage every %d ticks",
+    "tooltip.repair_amulet.ultimate": "Repairs %d damage every %d ticks",
+    "tooltip.repair_amulet.creative": "Repairs items instantly"
 }
