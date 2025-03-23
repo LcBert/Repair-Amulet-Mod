@@ -1,0 +1,14 @@
+# VSCode
+.vscode
+
+# gradle
+.gradle
+build
+
+# other
+eclipse
+run
+runs
+run-data
+
+repo
