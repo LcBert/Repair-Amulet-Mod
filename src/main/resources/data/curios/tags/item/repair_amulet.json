@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "repair_amulet:basic_repair_amulet",
+    "repair_amulet:advanced_repair_amulet",
+    "repair_amulet:elite_repair_amulet",
+    "repair_amulet:ultimate_repair_amulet",
+    "repair_amulet:creative_repair_amulet"
+  ]
+}

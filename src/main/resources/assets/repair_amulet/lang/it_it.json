@@ -1,0 +1,20 @@
+{
+    "itemGroup.creative_tab": "Amuleto di Riparazione",
+    "item.repair_amulet.basic_repair_amulet": "Amuleto di Riparazione Base",
+    "item.repair_amulet.advanced_repair_amulet": "Amuleto di Riparazione Avanzato",
+    "item.repair_amulet.elite_repair_amulet": "Amuleto di Riparazione Élite",
+    "item.repair_amulet.ultimate_repair_amulet": "Amuleto di Riparazione Finale",
+    "item.repair_amulet.creative_repair_amulet": "Amuleto di Riparazione Creativo",
+    "curios.identifier.repair_amulet": "Amuleto di Riparazione",
+    "text.repair_amulet.command.repair_item.no_select": "Nessun Oggetto Selezionato",
+    "text.repair_amulet.command.repair_item.item_no_damageable": "L'oggetto non è riparabile",
+    "text.repair_amulet.command.damage_item.no_select": "Nessun Oggetto Selezionato",
+    "text.repair_amulet.command.damage_item.item_no_damageable": "L'oggetto non è danneggiabile",
+    "text.repair_amulet.command.set_durability.no_select": "Nessun Oggetto Selezionato",
+    "text.repair_amulet.command.set_durability.item_no_damageable": "L'oggetto non è danneggiabile",
+    "tooltip.repair_amulet.basic": "Ripara %d danni ogni %d tick",
+    "tooltip.repair_amulet.advanced": "Ripara %d danni ogni %d tick",
+    "tooltip.repair_amulet.elite": "Ripara %d danni ogni %d tick",
+    "tooltip.repair_amulet.ultimate": "Ripara %d danni ogni %d tick",
+    "tooltip.repair_amulet.creative": "Ripara gli oggetti istantaneamente"
+}

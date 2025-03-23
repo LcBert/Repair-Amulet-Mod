@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "repair_amulet:item/elite_repair_amulet"
+  }
+}
