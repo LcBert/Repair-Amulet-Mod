@@ -8,7 +8,7 @@
   ],
   "key": {
     "a": {
-      "item": "minecraft:nether_star"
+      "item": "minecraft:diamond_block"
     },
     "b": {
       "item": "minecraft:anvil"
@@ -17,11 +17,11 @@
       "item": "minecraft:redstone"
     },
     "d": {
-      "item": "repair_amulet:elite_repair_amulet"
+      "item": "repair_amulet:advanced_repair_amulet"
     }
   },
   "result": {
-    "id": "repair_amulet:ultimate_repair_amulet",
+    "item": "repair_amulet:elite_repair_amulet",
     "count": 1
   }
 }

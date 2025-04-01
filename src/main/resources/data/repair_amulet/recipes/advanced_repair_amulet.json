@@ -8,7 +8,7 @@
   ],
   "key": {
     "a": {
-      "tag": "minecraft:logs"
+      "item": "minecraft:iron_block"
     },
     "b": {
       "item": "minecraft:anvil"
@@ -17,11 +17,11 @@
       "item": "minecraft:redstone"
     },
     "d": {
-      "item": "minecraft:stone"
+      "item": "repair_amulet:basic_repair_amulet"
     }
   },
   "result": {
-    "id": "repair_amulet:basic_repair_amulet",
+    "item": "repair_amulet:advanced_repair_amulet",
     "count": 1
   }
 }
