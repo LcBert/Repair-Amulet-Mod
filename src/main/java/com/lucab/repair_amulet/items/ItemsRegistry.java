@@ -9,6 +9,9 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 public class ItemsRegistry {
         public static final DeferredRegister.Items ITEM_REGISTRY = DeferredRegister.createItems(main.MODID);
 
+        public static final DeferredItem<Item> UNBREAKING_CORE = ITEM_REGISTRY
+                        .register("unbreaking_core", UnbreakingCore::new);
+
         public static final DeferredItem<Item> BASIC_REPAIR_AMULET = ITEM_REGISTRY
                         .register("basic_repair_amulet", BasicRepairAmulet::new);
 

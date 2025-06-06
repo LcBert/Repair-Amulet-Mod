@@ -1,11 +1,13 @@
 {
     "itemGroup.creative_tab": "Amuleto di Riparazione",
+    "item.repair_amulet.unbreaking_core": "Nucleo dell'Indistruttibilità",
     "item.repair_amulet.basic_repair_amulet": "Amuleto di Riparazione Base",
     "item.repair_amulet.advanced_repair_amulet": "Amuleto di Riparazione Avanzato",
     "item.repair_amulet.elite_repair_amulet": "Amuleto di Riparazione Élite",
     "item.repair_amulet.ultimate_repair_amulet": "Amuleto di Riparazione Finale",
     "item.repair_amulet.creative_repair_amulet": "Amuleto di Riparazione Creativo",
     "curios.identifier.repair_amulet": "Amuleto di Riparazione",
+    "text.repair_amulet.anvil.forge_unbreaking_core": "Forgiato con il §5§oNucleo dell'Indistruttibilità§r",
     "text.repair_amulet.command.repair_item.no_select": "Nessun Oggetto Selezionato",
     "text.repair_amulet.command.repair_item.item_no_damageable": "L'oggetto non è riparabile",
     "text.repair_amulet.command.damage_item.no_select": "Nessun Oggetto Selezionato",
