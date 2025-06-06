@@ -16,21 +16,23 @@ public class AnvilUnbreakingCore {
         ItemStack left = event.getLeft();
         ItemStack right = event.getRight();
         ItemStack output = left.copy();
+        try {
+            if (right.is(ItemsRegistry.UNBREAKING_CORE.get()) &&
+                    !left.getTag().contains("Unbreakable", (byte) 1) &&
+                    left.getMaxDamage() > 0) {
+                output.setDamageValue(0);
 
-        if (right.is(ItemsRegistry.UNBREAKING_CORE.get()) &&
-                !left.getTag().contains("Unbreakable", (byte) 1) &&
-                left.getMaxDamage() > 0) {
-            output.setDamageValue(0);
+                CompoundTag tag = new CompoundTag();
+                tag.putByte("Unbreakable", (byte) 1);
+                output.setTag(tag);
 
-            CompoundTag tag = new CompoundTag();
-            tag.putByte("Unbreakable", (byte) 1);
-            output.setTag(tag);
+                if (!event.getName().isEmpty())
+                    output.setHoverName(Component.literal(event.getName()));
 
-            if (!event.getName().isEmpty())
-                output.setHoverName(Component.literal(event.getName()));
-
-            event.setCost(30);
-            event.setOutput(output);
+                event.setCost(30);
+                event.setOutput(output);
+            }
+        } catch (Exception e) {
         }
     }
 }
