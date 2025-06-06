@@ -11,6 +11,9 @@ public class ItemsRegistry {
         public static final DeferredRegister<Item> ITEM_REGISTRY = DeferredRegister
                         .create(ForgeRegistries.ITEMS, main.MODID);
 
+        public static final RegistryObject<Item> UNBREAKING_CORE = ITEM_REGISTRY
+                        .register("unbreaking_core", UnbreakingCore::new);
+
         public static final RegistryObject<Item> BASIC_REPAIR_AMULET = ITEM_REGISTRY
                         .register("basic_repair_amulet", BasicRepairAmulet::new);
 

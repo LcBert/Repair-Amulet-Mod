@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "aba",
+    "cdc",
+    "aea"
+  ],
+  "key": {
+    "a": {
+      "item": "minecraft:netherite_ingot"
+    },
+    "b": {
+      "item": "minecraft:golden_apple"
+    },
+    "c": {
+      "item": "minecraft:end_crystal"
+    },
+    "d": {
+      "item": "minecraft:nether_star"
+    },
+    "e": {
+      "item": "minecraft:totem_of_undying"
+    }
+  },
+  "result": {
+    "item": "repair_amulet:unbreaking_core",
+    "count": 1
+  }
+}
