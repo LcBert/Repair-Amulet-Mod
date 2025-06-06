@@ -27,12 +27,13 @@ public class AnvilUnbreakingCore {
             output.set(DataComponents.UNBREAKABLE, new Unbreakable(false));
             if (!event.getName().isEmpty())
                 output.set(DataComponents.CUSTOM_NAME, Component.literal(event.getName()));
-            event.setOutput(output);
 
             output.set(DataComponents.LORE,
                     new ItemLore(java.util.List
                             .of(Component.translatable("text.repair_amulet.anvil.forge_unbreaking_core")
                                     .withColor(0xFF0000))));
+            
+            event.setOutput(output);
 
             if (event.getName().isEmpty())
                 event.setCost(30);
