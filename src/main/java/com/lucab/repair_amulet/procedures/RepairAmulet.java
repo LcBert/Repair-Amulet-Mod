@@ -2,13 +2,16 @@ package com.lucab.repair_amulet.procedures;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
-import com.lucab.repair_amulet.Config;
+import com.lucab.repair_amulet.Utils;
 import com.lucab.repair_amulet.main;
 import com.lucab.repair_amulet.network.ModVariables;
 
+import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
 public class RepairAmulet {
@@ -64,16 +67,30 @@ public class RepairAmulet {
                 .orElse(new ModVariables.PlayerVariables()).syncPlayerVariables(player);
     }
 
+    private static boolean ArrayContains(String array[], ItemStack item, Player player) {
+        for (String s : array) {
+            if (s.equals(item.toString().substring(2)))
+                return true;
+        }
+        return false;
+    }
+
+    private static String getNamespace(ItemStack item) {
+        String descriptionId = item.getDescriptionId().toString();
+        String[] splitDesc = descriptionId.split("\\.");
+        return String.format("%s:%s", splitDesc[1], splitDesc[2]);
+    }
+
     private static void repair_item(Player player, ItemStack item, int amount) {
         boolean can_repair = true;
         if (item.isDamageableItem()) {
             if (player.getCapability(ModVariables.PLAYER_VARIABLES, null)
                     .orElse(new ModVariables.PlayerVariables()).amulet_in_inventory != "creative") {
-                if (Config.items_list.size() > 0 && Config.items_list.toArray()[0] != "") {
-                    if (!Config.list_blacklist) {
-                        can_repair = Config.items_list.contains(item.getItem());
+                if (Utils.config.ItemsList.length > 0) {
+                    if (!Utils.config.ListBlacklist) {
+                        can_repair = ArrayContains(Utils.config.ItemsList, item, player);
                     } else {
-                        can_repair = !Config.items_list.contains(item.getItem());
+                        can_repair = !ArrayContains(Utils.config.ItemsList, item, player);
                     }
                 }
             }
@@ -96,43 +113,46 @@ public class RepairAmulet {
         switch (player.getCapability(ModVariables.PLAYER_VARIABLES, null)
                 .orElse(new ModVariables.PlayerVariables()).amulet_in_inventory) {
             case "basic":
-                cost = Config.basic_cost_amount;
+                cost = Utils.config.BasicCost;
                 break;
 
             case "advanced":
-                cost = Config.advanced_cost_amount;
+                cost = Utils.config.AdvancedCost;
                 break;
 
             case "elite":
-                cost = Config.elite_cost_amount;
+                cost = Utils.config.EliteCost;
                 break;
 
             case "ultimate":
-                cost = Config.ultimate_cost_amount;
+                cost = Utils.config.UltimateCost;
                 break;
 
             default:
                 break;
         }
 
-        switch (Config.repair_cost) {
+        switch (Utils.config.RepairCost) {
             case 1: // Consume Item
                 AtomicInteger item_count = new AtomicInteger(0);
-                if (player.getInventory().contains(new ItemStack(Config.repair_cost_item))) {
+                ItemStack itemCost = new ItemStack(
+                        ForgeRegistries.ITEMS.getValue(
+                                ResourceLocation.tryParse(Utils.config.RepairCostItem)));
+
+                if (player.getInventory().contains(itemCost)) {
                     player.getInventory().items.forEach(item -> {
-                        if (item.toString().contains(Config.repair_cost_item.toString())) {
+                        if (getNamespace(item).equals(getNamespace(itemCost))) {
                             item_count.addAndGet(item.getCount());
                         }
                     });
-                    if (player.getOffhandItem().toString().contains(Config.repair_cost_item.toString())) {
+                    if (getNamespace(player.getOffhandItem()).equals(getNamespace(itemCost))) {
                         item_count.addAndGet(player.getOffhandItem().getCount());
                     }
                 }
 
                 if (item_count.get() >= cost) {
-                    ItemStack _stktoremove = new ItemStack(Config.repair_cost_item);
                     for (int i = 1; i <= cost; i++)
-                        player.getInventory().clearOrCountMatchingItems(p -> _stktoremove.getItem() == p.getItem(), 1,
+                        player.getInventory().clearOrCountMatchingItems(p -> itemCost.getItem() == p.getItem(), 1,
                                 player.inventoryMenu.getCraftSlots());
                     return true;
                 }

@@ -21,8 +21,8 @@ import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.fml.loading.FMLPaths;
 import net.minecraftforge.fml.util.thread.SidedThreadGroups;
 import net.minecraftforge.network.NetworkEvent;
 import net.minecraftforge.network.NetworkRegistry;
@@ -30,12 +30,12 @@ import net.minecraftforge.network.simple.SimpleChannel;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 
-@Mod(main.MODID)
+@Mod(Utils.mod_id)
 public class main {
-    public static final String MODID = "repair_amulet";
+    // public static final String MODID = "repair_amulet";
 
     public static final DeferredRegister<CreativeModeTab> CREATIVE_TAB = DeferredRegister
-            .create(Registries.CREATIVE_MODE_TAB, MODID);
+            .create(Registries.CREATIVE_MODE_TAB, Utils.mod_id);
 
     public static final RegistryObject<CreativeModeTab> CREATIVE_MOD_TABS = CREATIVE_TAB
             .register("repair_amulet", () -> CreativeModeTab.builder()
@@ -55,12 +55,14 @@ public class main {
 
         MinecraftForge.EVENT_BUS.register(this);
 
-        context.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+        // context.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+
+        Utils.config = ConfigSchema.load(FMLPaths.CONFIGDIR.get().resolve(Utils.mod_id + ".json").toFile());
     }
 
     private static final String PROTOCOL_VERSION = "1";
     public static final SimpleChannel PACKET_HANDLER = NetworkRegistry.newSimpleChannel(
-            new ResourceLocation(MODID, MODID), () -> PROTOCOL_VERSION, PROTOCOL_VERSION::equals,
+            new ResourceLocation(Utils.mod_id, Utils.mod_id), () -> PROTOCOL_VERSION, PROTOCOL_VERSION::equals,
             PROTOCOL_VERSION::equals);
     private static int messageID = 0;
 

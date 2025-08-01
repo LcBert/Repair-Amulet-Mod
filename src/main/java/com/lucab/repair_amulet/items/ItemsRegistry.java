@@ -1,6 +1,6 @@
 package com.lucab.repair_amulet.items;
 
-import com.lucab.repair_amulet.main;
+import com.lucab.repair_amulet.Utils;
 
 import net.minecraft.world.item.Item;
 import net.minecraftforge.registries.DeferredRegister;
@@ -9,7 +9,7 @@ import net.minecraftforge.registries.RegistryObject;
 
 public class ItemsRegistry {
         public static final DeferredRegister<Item> ITEM_REGISTRY = DeferredRegister
-                        .create(ForgeRegistries.ITEMS, main.MODID);
+                        .create(ForgeRegistries.ITEMS, Utils.mod_id);
 
         public static final RegistryObject<Item> UNBREAKING_CORE = ITEM_REGISTRY
                         .register("unbreaking_core", UnbreakingCore::new);
