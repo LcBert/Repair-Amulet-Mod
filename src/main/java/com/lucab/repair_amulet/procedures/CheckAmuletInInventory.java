@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import javax.annotation.Nullable;
 
-import com.lucab.repair_amulet.Config;
+import com.lucab.repair_amulet.Utils;
 import com.lucab.repair_amulet.items.ItemsRegistry;
 import com.lucab.repair_amulet.network.ModVariables;
 
@@ -37,16 +37,17 @@ public class CheckAmuletInInventory {
             if (_player.getInventory().contains(new ItemStack(ItemsRegistry.CREATIVE_REPAIR_AMULET.get()))) {
                 putValues(_player, "creative", true, -1, -1);
             } else if (_player.getInventory().contains(new ItemStack(ItemsRegistry.ULTIMATE_REPAIR_AMULET.get()))) {
-                putValues(_player, "ultimate", true, Config.ultimate_tick, Config.ultimate_amount);
+                putValues(_player, "ultimate", true, Utils.config.UltimateTick, Utils.config.UltimateAmount);
             } else if (_player.getInventory().contains(new ItemStack(ItemsRegistry.ELITE_REPAIR_AMULET.get()))) {
-                putValues(_player, "elite", true, Config.elite_tick, Config.elite_amount);
+                putValues(_player, "elite", true, Utils.config.EliteTick, Utils.config.EliteAmount);
             } else if (_player.getInventory().contains(new ItemStack(ItemsRegistry.ADVANCED_REPAIR_AMULET.get()))) {
-                putValues(_player, "advanced", true, Config.advanced_tick, Config.advanced_amount);
+                putValues(_player, "advanced", true, Utils.config.AdvancedTick, Utils.config.AdvancedAmount);
             } else if (_player.getInventory().contains(new ItemStack(ItemsRegistry.BASIC_REPAIR_AMULET.get()))) {
-                putValues(_player, "basic", true, Config.basic_tick, Config.basic_amount);
+                putValues(_player, "basic", true, Utils.config.BasicTick, Utils.config.BasicAmount);
             } else {
                 putValues(_player, "none", false, 0, 0);
             }
+
             if (_player.getData(ModVariables.PLAYER_VARIABLES).have_amulet)
                 RepairAmulet.execute(_player);
         }

@@ -18,6 +18,11 @@ public class ResetPlayerVariables {
         execute(event, event.getEntity());
     }
 
+    @SubscribeEvent
+    public static void onPlayerRespawn(PlayerEvent.PlayerRespawnEvent event) {
+        execute(event, event.getEntity());
+    }
+
     public static void execute(Entity entity) {
         execute(null, entity);
     }

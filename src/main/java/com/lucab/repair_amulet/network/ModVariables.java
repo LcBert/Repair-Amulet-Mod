@@ -24,12 +24,13 @@ import net.minecraft.core.HolderLookup;
 
 import java.util.function.Supplier;
 
+import com.lucab.repair_amulet.Utils;
 import com.lucab.repair_amulet.main;
 
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
 public class ModVariables {
     public static final DeferredRegister<AttachmentType<?>> ATTACHMENT_TYPES = DeferredRegister
-            .create(NeoForgeRegistries.Keys.ATTACHMENT_TYPES, main.MODID);
+            .create(NeoForgeRegistries.Keys.ATTACHMENT_TYPES, Utils.mod_id);
     public static final Supplier<AttachmentType<PlayerVariables>> PLAYER_VARIABLES = ATTACHMENT_TYPES
             .register("player_variables", () -> AttachmentType.serializable(() -> new PlayerVariables()).build());
 
@@ -107,7 +108,7 @@ public class ModVariables {
 
     public record PlayerVariablesSyncMessage(PlayerVariables data) implements CustomPacketPayload {
         public static final Type<PlayerVariablesSyncMessage> TYPE = new Type<>(
-                ResourceLocation.fromNamespaceAndPath(main.MODID, "player_variables_sync"));
+                ResourceLocation.fromNamespaceAndPath(Utils.mod_id, "player_variables_sync"));
         public static final StreamCodec<RegistryFriendlyByteBuf, PlayerVariablesSyncMessage> STREAM_CODEC = StreamCodec
                 .of((RegistryFriendlyByteBuf buffer, PlayerVariablesSyncMessage message) -> buffer
                         .writeNbt(message.data().serializeNBT(buffer.registryAccess())),

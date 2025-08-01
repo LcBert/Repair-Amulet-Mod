@@ -7,11 +7,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
-import org.slf4j.Logger;
-
 import com.lucab.repair_amulet.items.ItemsRegistry;
 import com.lucab.repair_amulet.network.ModVariables;
-import com.mojang.logging.LogUtils;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.FriendlyByteBuf;
@@ -22,7 +19,7 @@ import net.minecraft.util.Tuple;
 import net.minecraft.world.item.CreativeModeTab;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.config.ModConfig;
+import net.neoforged.fml.loading.FMLPaths;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.util.thread.SidedThreadGroups;
@@ -35,13 +32,12 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
-@Mod(main.MODID)
+@Mod(Utils.mod_id)
 public class main {
-    public static final String MODID = "repair_amulet";
-    private static final Logger LOGGER = LogUtils.getLogger();
+    // public static final String MODID = "repair_amulet";
 
     public static final DeferredRegister<CreativeModeTab> CREATIVE_TAB = DeferredRegister
-            .create(Registries.CREATIVE_MODE_TAB, MODID);
+            .create(Registries.CREATIVE_MODE_TAB, Utils.mod_id);
 
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> CREATIVE_MOD_TABS = CREATIVE_TAB
             .register("repair_amulet", () -> CreativeModeTab.builder()
@@ -63,7 +59,7 @@ public class main {
 
         ModVariables.ATTACHMENT_TYPES.register(modEventBus);
 
-        modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+        Utils.config = ConfigSchema.load(FMLPaths.CONFIGDIR.get().resolve(Utils.mod_id + ".json").toFile());
     }
 
     private static boolean networkingRegistered = false;
@@ -83,7 +79,7 @@ public class main {
 
     @SuppressWarnings({ "rawtypes", "unchecked" })
     private void registerNetworking(final RegisterPayloadHandlersEvent event) {
-        final PayloadRegistrar registrar = event.registrar(MODID);
+        final PayloadRegistrar registrar = event.registrar(Utils.mod_id);
         MESSAGES.forEach((id, networkMessage) -> registrar.playBidirectional(id,
                 ((NetworkMessage) networkMessage).reader(), ((NetworkMessage) networkMessage).handler()));
         networkingRegistered = true;
