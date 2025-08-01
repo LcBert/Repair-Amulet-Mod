@@ -7,11 +7,9 @@ import com.lucab.repair_amulet.main;
 import com.lucab.repair_amulet.network.ModVariables;
 
 import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
 public class RepairAmulet {
