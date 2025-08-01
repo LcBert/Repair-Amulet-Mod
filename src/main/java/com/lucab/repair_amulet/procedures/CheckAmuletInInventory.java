@@ -37,13 +37,29 @@ public class CheckAmuletInInventory {
             if (_player.getInventory().contains(new ItemStack(ItemsRegistry.CREATIVE_REPAIR_AMULET.get()))) {
                 putValues(_player, "creative", true, -1, -1);
             } else if (_player.getInventory().contains(new ItemStack(ItemsRegistry.ULTIMATE_REPAIR_AMULET.get()))) {
-                putValues(_player, "ultimate", true, Utils.config.UltimateTick, Utils.config.UltimateAmount);
+                putValues(_player,
+                        "ultimate",
+                        true,
+                        (int) (long) Utils.config.UltimateRepairAmulet.get("Tick").get("Value"),
+                        (int) (long) Utils.config.UltimateRepairAmulet.get("Amount").get("Value"));
             } else if (_player.getInventory().contains(new ItemStack(ItemsRegistry.ELITE_REPAIR_AMULET.get()))) {
-                putValues(_player, "elite", true, Utils.config.EliteTick, Utils.config.EliteAmount);
+                putValues(_player,
+                        "elite",
+                        true,
+                        (int) (long) Utils.config.EliteRepairAmulet.get("Tick").get("Value"),
+                        (int) (long) Utils.config.EliteRepairAmulet.get("Amount").get("Value"));
             } else if (_player.getInventory().contains(new ItemStack(ItemsRegistry.ADVANCED_REPAIR_AMULET.get()))) {
-                putValues(_player, "advanced", true, Utils.config.AdvancedTick, Utils.config.AdvancedAmount);
+                putValues(_player,
+                        "advanced",
+                        true,
+                        (int) (long) Utils.config.AdvancedRepairAmulet.get("Tick").get("Value"),
+                        (int) (long) Utils.config.AdvancedRepairAmulet.get("Amount").get("Value"));
             } else if (_player.getInventory().contains(new ItemStack(ItemsRegistry.BASIC_REPAIR_AMULET.get()))) {
-                putValues(_player, "basic", true, Utils.config.BasicTick, Utils.config.BasicAmount);
+                putValues(_player,
+                        "basic",
+                        true,
+                        (int) (long) Utils.config.BasicRepairAmulet.get("Tick").get("Value"),
+                        (int) (long) Utils.config.BasicRepairAmulet.get("Amount").get("Value"));
             } else {
                 putValues(_player, "none", false, 0, 0);
             }
