@@ -57,13 +57,11 @@ public class RepairAmulet {
         player.getData(ModVariables.PLAYER_VARIABLES).syncPlayerVariables(player);
     }
 
-    private static boolean listContains(Object list, ItemStack item, Player player) {
-        if (list instanceof ArrayList<?>) {
-            ArrayList<?> rawList = (ArrayList<?>) list;
-            for (Object obj : rawList) {
-                if (obj instanceof String s) {
-                    if (s.equals(item.toString().substring(2)))
-                        return true;
+    private static boolean listContains(Object list, ItemStack item) {
+        for (Object obj : (ArrayList<?>) list) {
+            if (obj instanceof String) {
+                if (String.valueOf(obj).equals(item.getItem().toString())) {
+                    return true;
                 }
             }
         }
@@ -76,11 +74,9 @@ public class RepairAmulet {
             if (player.getData(ModVariables.PLAYER_VARIABLES).amulet_in_inventory != "creative") {
                 if (List.of(Utils.config.ItemsList.get("List").get("Value")).size() > 0) {
                     if (!(boolean) Utils.config.ItemsList.get("Blacklist").get("Value")) {
-                        can_repair = listContains(List.of(Utils.config.ItemsList.get("List").get("Value")), item,
-                                player);
+                        can_repair = listContains(Utils.config.ItemsList.get("List").get("Value"), item);
                     } else {
-                        can_repair = !listContains(List.of(Utils.config.ItemsList.get("List").get("Value")), item,
-                                player);
+                        can_repair = !listContains(Utils.config.ItemsList.get("List").get("Value"), item);
                     }
                 }
             }
