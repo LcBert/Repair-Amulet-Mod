@@ -1,5 +1,7 @@
 package com.lucab.repair_amulet.procedures;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import com.lucab.repair_amulet.Utils;
@@ -65,10 +67,13 @@ public class RepairAmulet {
                 .orElse(new ModVariables.PlayerVariables()).syncPlayerVariables(player);
     }
 
-    private static boolean ArrayContains(String array[], ItemStack item, Player player) {
-        for (String s : array) {
-            if (s.equals(item.toString().substring(2)))
-                return true;
+    private static boolean listContains(Object list, ItemStack item) {
+        for (Object obj : (ArrayList<?>) list) {
+            if (obj instanceof String) {
+                if (String.valueOf(obj).equals(getNamespace(item))) {
+                    return true;
+                }
+            }
         }
         return false;
     }
@@ -84,11 +89,11 @@ public class RepairAmulet {
         if (item.isDamageableItem()) {
             if (player.getCapability(ModVariables.PLAYER_VARIABLES, null)
                     .orElse(new ModVariables.PlayerVariables()).amulet_in_inventory != "creative") {
-                if (Utils.config.ItemsList.length > 0) {
-                    if (!Utils.config.ListBlacklist) {
-                        can_repair = ArrayContains(Utils.config.ItemsList, item, player);
+                if (List.of(Utils.config.ItemsList.get("List").get("Value")).size() > 0) {
+                    if (!(boolean) Utils.config.ItemsList.get("Blacklist").get("Value")) {
+                        can_repair = listContains(Utils.config.ItemsList.get("List").get("Value"), item);
                     } else {
-                        can_repair = !ArrayContains(Utils.config.ItemsList, item, player);
+                        can_repair = !listContains(Utils.config.ItemsList.get("List").get("Value"), item);
                     }
                 }
             }
@@ -111,31 +116,31 @@ public class RepairAmulet {
         switch (player.getCapability(ModVariables.PLAYER_VARIABLES, null)
                 .orElse(new ModVariables.PlayerVariables()).amulet_in_inventory) {
             case "basic":
-                cost = Utils.config.BasicCost;
+                cost = (int) (long) Utils.config.BasicRepairAmulet.get("Cost").get("Value");
                 break;
 
             case "advanced":
-                cost = Utils.config.AdvancedCost;
+                cost = (int) (long) Utils.config.AdvancedRepairAmulet.get("Cost").get("Value");
                 break;
 
             case "elite":
-                cost = Utils.config.EliteCost;
+                cost = (int) (long) Utils.config.EliteRepairAmulet.get("Cost").get("Value");
                 break;
 
             case "ultimate":
-                cost = Utils.config.UltimateCost;
+                cost = (int) (long) Utils.config.UltimateRepairAmulet.get("Cost").get("Value");
                 break;
 
             default:
                 break;
         }
 
-        switch (Utils.config.RepairCost) {
+        switch ((int) (long) Utils.config.RepairCost.get("Value")) {
             case 1: // Consume Item
                 AtomicInteger item_count = new AtomicInteger(0);
                 ItemStack itemCost = new ItemStack(
                         ForgeRegistries.ITEMS.getValue(
-                                ResourceLocation.tryParse(Utils.config.RepairCostItem)));
+                                ResourceLocation.tryParse((String) Utils.config.RepairCostItem.get("Value"))));
 
                 if (player.getInventory().contains(itemCost)) {
                     player.getInventory().items.forEach(item -> {

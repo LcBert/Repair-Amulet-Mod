@@ -34,27 +34,31 @@ public class Tooltips {
 
         if (itemstack.getItem() == ItemsRegistry.BASIC_REPAIR_AMULET.get())
             tooltip.add(1,
-                    Component.translatable("tooltip.repair_amulet.basic",
-                            Utils.config.BasicAmount,
-                            Utils.config.BasicTick));
+                    Component.translatable(
+                            "tooltip.repair_amulet.basic",
+                            Utils.config.BasicRepairAmulet.get("Amount").get("Value"),
+                            Utils.config.BasicRepairAmulet.get("Tick").get("Value")));
 
         if (itemstack.getItem() == ItemsRegistry.ADVANCED_REPAIR_AMULET.get())
             tooltip.add(1,
-                    Component.translatable("tooltip.repair_amulet.advanced",
-                            Utils.config.AdvancedAmount,
-                            Utils.config.AdvancedTick));
+                    Component.translatable(
+                            "tooltip.repair_amulet.basic",
+                            Utils.config.AdvancedRepairAmulet.get("Amount").get("Value"),
+                            Utils.config.AdvancedRepairAmulet.get("Tick").get("Value")));
 
         if (itemstack.getItem() == ItemsRegistry.ELITE_REPAIR_AMULET.get())
             tooltip.add(1,
-                    Component.translatable("tooltip.repair_amulet.elite",
-                            Utils.config.EliteAmount,
-                            Utils.config.EliteTick));
+                    Component.translatable(
+                            "tooltip.repair_amulet.basic",
+                            Utils.config.EliteRepairAmulet.get("Amount").get("Value"),
+                            Utils.config.EliteRepairAmulet.get("Tick").get("Value")));
 
         if (itemstack.getItem() == ItemsRegistry.ULTIMATE_REPAIR_AMULET.get())
             tooltip.add(1,
-                    Component.translatable("tooltip.repair_amulet.ultimate",
-                            Utils.config.UltimateAmount,
-                            Utils.config.UltimateTick));
+                    Component.translatable(
+                            "tooltip.repair_amulet.basic",
+                            Utils.config.UltimateRepairAmulet.get("Amount").get("Value"),
+                            Utils.config.UltimateRepairAmulet.get("Tick").get("Value")));
 
         if (itemstack.getItem() == ItemsRegistry.CREATIVE_REPAIR_AMULET.get())
             tooltip.add(1, Component.translatable("tooltip.repair_amulet.creative"));
