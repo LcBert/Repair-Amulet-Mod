@@ -134,16 +134,40 @@ public class ConfigSchema {
     @Expose
     public Map<String, HashMap<String, Object>> ItemsList = new HashMap<String, HashMap<String, Object>>() {
         {
-            put("Blacklist", new HashMap<String, Object>() {
-                {
-                    put("//", "Define if the items list is blacklist");
-                    put("Value", true);
-                }
-            });
             put("List", new HashMap<String, Object>() {
                 {
                     put("//", "Items list to consider during repair");
                     put("Value", List.of());
+                }
+            });
+            put("Blacklist", new HashMap<String, Object>() {
+                {
+                    put("//", "Define if the list is blacklist");
+                    put("Value", true);
+                }
+            });
+        }
+    };
+
+    @Expose
+    public Map<String, HashMap<String, Object>> UnbreakingCore = new HashMap<String, HashMap<String, Object>>() {
+        {
+            put("Cost", new HashMap<String, Object>() {
+                {
+                    put("//", "Define the cost in XP Level for the Unbreaking Core (0: No Cost, -1: Disable)");
+                    put("Value", 30);
+                }
+            });
+            put("List", new HashMap<String, Object>() {
+                {
+                    put("//", "Items list to consider for Unbreaking Core");
+                    put("Value", List.of());
+                }
+            });
+            put("Blacklist", new HashMap<String, Object>() {
+                {
+                    put("//", "Define if the list is blacklist");
+                    put("Value", true);
                 }
             });
         }
