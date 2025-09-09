@@ -58,17 +58,6 @@ public class RepairAmulet {
         player.getData(ModVariables.PLAYER_VARIABLES).syncPlayerVariables(player);
     }
 
-    private static boolean listContains(Object list, ItemStack item) {
-        for (Object obj : (ArrayList<?>) list) {
-            if (obj instanceof String) {
-                if (String.valueOf(obj).equals(item.getItem().toString())) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
     private static void repair_item(Player player, ItemStack item, int amount) {
         boolean can_repair = true;
         Object config_list = Utils.config.ItemsList.get("List").get("Value");
