@@ -1,5 +1,6 @@
 package com.lucab.repair_amulet.mixin;
 
+import com.lucab.repair_amulet.Utils;
 import com.lucab.repair_amulet.items.ItemsRegistry;
 
 import net.minecraft.core.component.DataComponents;
@@ -17,6 +18,10 @@ public class AnvilUnbreakingCore {
         ItemStack left = event.getLeft();
         ItemStack right = event.getRight();
         ItemStack output = left.copy();
+        Integer cost = Integer.valueOf(Utils.config.UnbreakingCore.get("Cost").get("Value").toString());
+
+        if (cost <= 0)
+            return;
 
         if (right.is(ItemsRegistry.UNBREAKING_CORE) &&
                 !left.has(DataComponents.UNBREAKABLE) &&
@@ -24,12 +29,13 @@ public class AnvilUnbreakingCore {
 
             output.setDamageValue(0);
             output.set(DataComponents.UNBREAKABLE, new Unbreakable(true));
-            if (!event.getName().isEmpty())
+            if (!event.getName().isEmpty()) {
                 output.set(DataComponents.CUSTOM_NAME, Component.literal(event.getName()));
+                cost++;
+            }
 
+            event.setCost(cost);
             event.setOutput(output);
-
-            event.setCost(30);
         }
     }
 }
