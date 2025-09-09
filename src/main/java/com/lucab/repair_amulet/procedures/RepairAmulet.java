@@ -7,6 +7,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import com.lucab.repair_amulet.Utils;
 import com.lucab.repair_amulet.main;
 import com.lucab.repair_amulet.network.ModVariables;
+import com.lucab.repair_amulet.Functions;
 
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
@@ -70,13 +71,14 @@ public class RepairAmulet {
 
     private static void repair_item(Player player, ItemStack item, int amount) {
         boolean can_repair = true;
+        Object config_list = Utils.config.ItemsList.get("List").get("Value");
         if (item.isDamageableItem()) {
             if (player.getData(ModVariables.PLAYER_VARIABLES).amulet_in_inventory != "creative") {
-                if (List.of(Utils.config.ItemsList.get("List").get("Value")).size() > 0) {
+                if (List.of(config_list).size() > 0) {
                     if (!(boolean) Utils.config.ItemsList.get("Blacklist").get("Value")) {
-                        can_repair = listContains(Utils.config.ItemsList.get("List").get("Value"), item);
+                        can_repair = Functions.listContains(config_list, item);
                     } else {
-                        can_repair = !listContains(Utils.config.ItemsList.get("List").get("Value"), item);
+                        can_repair = !Functions.listContains(config_list, item);
                     }
                 }
             }

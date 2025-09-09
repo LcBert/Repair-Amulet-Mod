@@ -1,7 +1,10 @@
 package com.lucab.repair_amulet.mixin;
 
+import java.util.List;
+
 import com.lucab.repair_amulet.Utils;
 import com.lucab.repair_amulet.items.ItemsRegistry;
+import com.lucab.repair_amulet.Functions;
 
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
@@ -23,7 +26,19 @@ public class AnvilUnbreakingCore {
         if (cost <= 0)
             return;
 
-        if (right.is(ItemsRegistry.UNBREAKING_CORE) &&
+        boolean can_upgrade = true;
+        Object config_list = Utils.config.UnbreakingCore.get("List").get("Value");
+
+        if (List.of(config_list).size() > 0) {
+            if (!(boolean) Utils.config.UnbreakingCore.get("Blacklist").get("Value")) {
+                can_upgrade = Functions.listContains(config_list, left);
+            } else {
+                can_upgrade = !Functions.listContains(config_list, left);
+            }
+        }
+
+        if (can_upgrade &&
+                right.is(ItemsRegistry.UNBREAKING_CORE) &&
                 !left.has(DataComponents.UNBREAKABLE) &&
                 left.has(DataComponents.MAX_DAMAGE)) {
 
