@@ -1,7 +1,10 @@
 package com.lucab.repair_amulet.mixin;
 
+import java.util.List;
+
 import com.lucab.repair_amulet.Utils;
 import com.lucab.repair_amulet.items.ItemsRegistry;
+import com.lucab.repair_amulet.Functions;
 
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -23,27 +26,36 @@ public class AnvilUnbreakingCore {
         // Boolean Blacklist =
         // Boolean.valueOf(Utils.config.UnbreakingCore.get("Blacklist").get("Value").toString());
 
-        if (cost <= -1)
+        if (cost <= 0)
             return;
-        try {
-            if (right.is(ItemsRegistry.UNBREAKING_CORE.get()) &&
-                    !left.getTag().contains("Unbreakable", (byte) 1) &&
-                    left.getMaxDamage() > 0) {
-                output.setDamageValue(0);
 
-                CompoundTag tag = new CompoundTag();
-                tag.putByte("Unbreakable", (byte) 1);
-                output.setTag(tag);
-
-                if (!event.getName().isEmpty()) {
-                    output.setHoverName(Component.literal(event.getName()));
-                    cost++;
-                }
-
-                event.setCost(cost);
-                event.setOutput(output);
+        boolean can_upgrade = true;
+        Object config_list = Utils.config.UnbreakingCore.get("List").get("Value");
+        if (List.of(config_list).size() > 0) {
+            if (!(boolean) Utils.config.UnbreakingCore.get("Blacklist").get("Value")) {
+                can_upgrade = Functions.listContains(config_list, left);
+            } else {
+                can_upgrade = !Functions.listContains(config_list, left);
             }
-        } catch (Exception e) {
+        }
+
+        if (can_upgrade &&
+                right.is(ItemsRegistry.UNBREAKING_CORE.get()) &&
+                !left.getTag().contains("Unbreakable", (byte) 1) &&
+                left.getMaxDamage() > 0) {
+            output.setDamageValue(0);
+
+            CompoundTag tag = new CompoundTag();
+            tag.putByte("Unbreakable", (byte) 1);
+            output.setTag(tag);
+
+            if (!event.getName().isEmpty()) {
+                output.setHoverName(Component.literal(event.getName()));
+                cost++;
+            }
+
+            event.setCost(cost);
+            event.setOutput(output);
         }
     }
 }

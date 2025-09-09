@@ -1,12 +1,12 @@
 package com.lucab.repair_amulet.procedures;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import com.lucab.repair_amulet.Utils;
 import com.lucab.repair_amulet.main;
 import com.lucab.repair_amulet.network.ModVariables;
+import com.lucab.repair_amulet.Functions;
 
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraft.resources.ResourceLocation;
@@ -67,33 +67,34 @@ public class RepairAmulet {
                 .orElse(new ModVariables.PlayerVariables()).syncPlayerVariables(player);
     }
 
-    private static boolean listContains(Object list, ItemStack item) {
-        for (Object obj : (ArrayList<?>) list) {
-            if (obj instanceof String) {
-                if (String.valueOf(obj).equals(getNamespace(item))) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
+    // private static boolean listContains(Object list, ItemStack item) {
+    // for (Object obj : (ArrayList<?>) list) {
+    // if (obj instanceof String) {
+    // if (String.valueOf(obj).equals(getNamespace(item))) {
+    // return true;
+    // }
+    // }
+    // }
+    // return false;
+    // }
 
-    private static String getNamespace(ItemStack item) {
-        String descriptionId = item.getDescriptionId().toString();
-        String[] splitDesc = descriptionId.split("\\.");
-        return String.format("%s:%s", splitDesc[1], splitDesc[2]);
-    }
+    // private static String getNamespace(ItemStack item) {
+    // String descriptionId = item.getDescriptionId().toString();
+    // String[] splitDesc = descriptionId.split("\\.");
+    // return String.format("%s:%s", splitDesc[1], splitDesc[2]);
+    // }
 
     private static void repair_item(Player player, ItemStack item, int amount) {
         boolean can_repair = true;
+        Object config_list = Utils.config.ItemsList.get("List").get("Value");
         if (item.isDamageableItem()) {
             if (player.getCapability(ModVariables.PLAYER_VARIABLES, null)
                     .orElse(new ModVariables.PlayerVariables()).amulet_in_inventory != "creative") {
-                if (List.of(Utils.config.ItemsList.get("List").get("Value")).size() > 0) {
+                if (List.of(config_list).size() > 0) {
                     if (!(boolean) Utils.config.ItemsList.get("Blacklist").get("Value")) {
-                        can_repair = listContains(Utils.config.ItemsList.get("List").get("Value"), item);
+                        can_repair = Functions.listContains(config_list, item);
                     } else {
-                        can_repair = !listContains(Utils.config.ItemsList.get("List").get("Value"), item);
+                        can_repair = !Functions.listContains(config_list, item);
                     }
                 }
             }
@@ -144,11 +145,11 @@ public class RepairAmulet {
 
                 if (player.getInventory().contains(itemCost)) {
                     player.getInventory().items.forEach(item -> {
-                        if (getNamespace(item).equals(getNamespace(itemCost))) {
+                        if (Functions.getNamespace(item).equals(Functions.getNamespace(itemCost))) {
                             item_count.addAndGet(item.getCount());
                         }
                     });
-                    if (getNamespace(player.getOffhandItem()).equals(getNamespace(itemCost))) {
+                    if (Functions.getNamespace(player.getOffhandItem()).equals(Functions.getNamespace(itemCost))) {
                         item_count.addAndGet(player.getOffhandItem().getCount());
                     }
                 }
