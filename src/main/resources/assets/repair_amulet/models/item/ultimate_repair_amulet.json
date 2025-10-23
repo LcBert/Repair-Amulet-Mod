@@ -1,7 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "repair_amulet:item/repair_amulet_base",
-    "layer1": "repair_amulet:item/ultimate_repair_amulet"
+    "layer0": "repair_amulet:item/ultimate_repair_amulet"
   }
 }
