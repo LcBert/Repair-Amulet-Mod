@@ -7,6 +7,7 @@ build
 
 # other
 eclipse
+bin
 run
 runs
 run-data
